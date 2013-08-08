@@ -205,7 +205,7 @@
       NeoBundleLazy 'Javascript-Indentation', {'depends': 'IndentAnything', 'autoload': {'filetypes': 'javascript'}}
 
     "
-      NeoBundleLazy 'pangloss/vim-javascript', {'autoload': {'filetypes': 'javascript'}}
+      NeoBundleLazy 'pangloss/vim-javascript', {'autoload': {'filetypes': 'javascript'}, 'build': {'unix': 'rm -rf indent; git commit -am "remove indentation"'}}
 
     " Coffee script
       NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload': {'filetypes': 'coffee'}}
@@ -267,7 +267,7 @@
 
     " xml.vim + xsltassisant
       NeoBundleLazy 'xml.vim', {'autoload': {'filetypes': ['xml', 'xslt']}, 'augroup': 'XmlVim'}
-      NeoBundleLazy 'xslhelper.vim', {'autoload': {'filetypes': 'xslt'}, 'build': {'unix': 'mv -f ftplugin/xsl{helper,t}.vim'}}
+      NeoBundleLazy 'xslhelper.vim', {'autoload': {'filetypes': 'xslt'}, 'build': {'unix': 'mv -f ftplugin/xsl{helper,t}.vim; git commit -am "rename ftplugin"'}}
 
     " ghetto HTML/XML mappings
       NeoBundleLazy 'tpope/vim-ragtag', {'autoload': {'filetypes': ['xml', 'xslt']}, 'augroup': 'XmlVim'}
