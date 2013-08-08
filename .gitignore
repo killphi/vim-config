@@ -1,5 +1,6 @@
+backup_*
 !.vim*
 .vim/.netrwhist
 .vim/bundle
-.vim/snippets
+.vim/UltiSnips
 .vim/custom
