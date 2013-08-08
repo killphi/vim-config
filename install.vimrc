@@ -11,4 +11,5 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 runtime! config/10_plugins.vim
 
 NeoBundleInstall
+NeoBundleDocs
 qall
