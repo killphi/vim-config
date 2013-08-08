@@ -233,8 +233,8 @@
     " custom text object for selecting ruby blocks
       NeoBundleLazy 'nelstrom/vim-textobj-rubyblock', {'depends': 'kana/vim-textobj-user', 'autoload': {'filetypes': ['ruby', 'rails']}}
 
-    " Ruby MatchIt Fork
-      NeoBundleLazy 'killphi/ruby-matchit', {'autoload': {'filetypes': ['ruby', 'rails']}}
+    " Ruby MatchIt
+      NeoBundleLazy 'ruby-matchit', {'autoload': {'filetypes': ['ruby', 'rails']}}
 
     " Lightweight support for Ruby's Bundler'
       NeoBundleLazy 'tpope/vim-bundler', {'autoload': {'filetypes': ['ruby', 'rails']}}
