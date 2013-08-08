@@ -205,7 +205,7 @@
       NeoBundleLazy 'Javascript-Indentation', {'depends': 'IndentAnything', 'autoload': {'filetypes': 'javascript'}}
 
     "
-      NeoBundleLazy 'killphi/vim-javascript', {'autoload': {'filetypes': 'javascript'}}
+      NeoBundleLazy 'pangloss/vim-javascript', {'autoload': {'filetypes': 'javascript'}}
 
     " Coffee script
       NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload': {'filetypes': 'coffee'}}
