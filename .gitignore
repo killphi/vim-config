@@ -1,4 +1,5 @@
 !.vim*
-.vim/bundle
-.vim/custom
 .vim/.netrwhist
+.vim/bundle
+.vim/snippets
+.vim/custom
