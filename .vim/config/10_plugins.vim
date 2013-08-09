@@ -228,34 +228,31 @@
     "
 
     " Vim/Ruby Configuration Files
-      NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': ['ruby', 'rails']}}
+      NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': 'ruby'}}
 
     " custom text object for selecting ruby blocks
-      NeoBundleLazy 'nelstrom/vim-textobj-rubyblock', {'depends': 'kana/vim-textobj-user', 'autoload': {'filetypes': ['ruby', 'rails']}}
-
-    " Ruby MatchIt
-      NeoBundleLazy 'ruby-matchit', {'autoload': {'filetypes': ['ruby', 'rails']}}
+      NeoBundleLazy 'nelstrom/vim-textobj-rubyblock', {'depends': 'kana/vim-textobj-user', 'autoload': {'filetypes': 'ruby'}}
 
     " Lightweight support for Ruby's Bundler'
-      NeoBundleLazy 'tpope/vim-bundler', {'autoload': {'filetypes': ['ruby', 'rails']}}
+      NeoBundleLazy 'tpope/vim-bundler', {'autoload': {'filetypes': 'ruby'}}
 
     " like rails.vim without the rails
-      NeoBundleLazy 'tpope/vim-rake', {'autoload': {'filetypes': ['ruby', 'rails']}}
+      NeoBundleLazy 'tpope/vim-rake', {'autoload': {'filetypes': 'ruby'}}
 
     " rails.vim, nuff' said
-      NeoBundleLazy 'tpope/vim-rails', {'autoload': {'filetypes': 'rails'}, 'augroup': 'TPopeVimRails'}
+      NeoBundleLazy 'tpope/vim-rails', {'autoload': {'filetypes': 'ruby'}, 'augroup': 'TPopeVimRails'}
         augroup TPopeVimRails
-          autocmd FileType rails map <Leader>oc :Rcontroller<Space>
-          autocmd FileType rails map <Leader>ov :Rview<Space>
-          autocmd FileType rails map <Leader>om :Rmodel<Space>
-          autocmd FileType rails map <Leader>oh :Rhelper<Space>
-          autocmd FileType rails map <Leader>oj :Rjavascript<Space>
-          autocmd FileType rails map <Leader>os :Rstylesheet<Space>
-          autocmd FileType rails map <Leader>oi :Rintegration<Space>
+          autocmd FileType ruby map <Leader>oc :Rcontroller<Space>
+          autocmd FileType ruby map <Leader>ov :Rview<Space>
+          autocmd FileType ruby map <Leader>om :Rmodel<Space>
+          autocmd FileType ruby map <Leader>oh :Rhelper<Space>
+          autocmd FileType ruby map <Leader>oj :Rjavascript<Space>
+          autocmd FileType ruby map <Leader>os :Rstylesheet<Space>
+          autocmd FileType ruby map <Leader>oi :Rintegration<Space>
         augroup END
 
     " Refactoring tool for Ruby
-      NeoBundleLazy 'killphi/vim-ruby-refactoring', {'autoload': {'filetypes': ['ruby', 'rails']}}
+      NeoBundleLazy 'killphi/vim-ruby-refactoring', {'autoload': {'filetypes': 'ruby'}}
 
 
   """ XML
