@@ -92,6 +92,9 @@
 """ IDE functionality
   "
 
+  " create cscope database and connect to existing proper database automatically
+    NeoBundle 'cscope.vim'
+
   " Tagbar for navigation by tags using CTags
     NeoBundle 'majutsushi/tagbar'
       let g:tagbar_autofocus = 1
