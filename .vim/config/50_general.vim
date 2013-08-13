@@ -1,6 +1,7 @@
 " default color scheme
   "
-  set background=light
+  set t_Co=256
+  set background=dark
   color solarized
 
 " don't wrap long lines

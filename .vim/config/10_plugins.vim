@@ -295,7 +295,7 @@
     " better than GitGutter
       NeoBundle 'mhinz/vim-signify'
         let g:signify_vcs_list = [ 'git', 'hg' ]
-        let g:signify_diffoptions = { 'git': '-w' }
+        let g:signify_diffoptions = { 'git': '-b' }
 
 
   """ VimL
