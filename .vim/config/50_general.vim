@@ -36,17 +36,6 @@
   "
   set rulerformat=%=%l/%L
 
-" augment status line
-  "
-  function! ETry(function, ...)
-    if exists('*'.a:function)
-      return call(a:function, a:000)
-    else
-      return ''
-    endif
-  endfunction
-  set statusline=[%n]\ %<%.99f\ %h%w%m%r%{ETry('CapsLockStatusline')}%y%{ETry('rails#statusline')}%{ETry('fugitive#statusline')}%#ErrorMsg#%*%=%-16(\ %l,%c-%v\ %)%P
-
 " flip the default split directions to sane ones
   "
   set splitright
@@ -87,3 +76,5 @@
 " helper for width between 80 and 120
   "
   set colorcolumn=81,121,122
+
+" vim:set fdm=indent:
