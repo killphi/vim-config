@@ -338,8 +338,8 @@
   """ VimL
     "
 
-    " plugin for developing VimL
-      NeoBundleLazy 'c9s/vim-dev-plugin', {'autoload': {'filetypes': 'vim'}}
+    " " plugin for developing VimL
+    "   NeoBundleLazy 'c9s/vim-dev-plugin', {'autoload': {'filetypes': 'vim'}}
 
 
   """ Markdown
