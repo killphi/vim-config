@@ -20,6 +20,9 @@
 " CoffeeScript
   autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
+" Perl
+  autocmd BufNewFile,BufRead *.pl,*.pm,*.epl,*.pll set filetype=perl
+
 
 " reenable syntax highlighting
   autocmd FileType * syntax enable
