@@ -327,9 +327,12 @@
       NeoBundle 'tpope/vim-fugitive'
 
     " better than GitGutter
-      NeoBundle 'mhinz/vim-signify'
+        NeoBundle 'mhinz/vim-signify'
         let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]
         let g:signify_diffoptions = { 'git': '-b' }
+
+    " TextObj SignifyHunk
+      NeoBundle 'killphi/vim-textobj-signify-hunk', {'depends': ['kana/vim-textobj-user', 'mhinz/vim-signify']}
 
 
   """ VimL
