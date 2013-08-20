@@ -30,7 +30,7 @@
     NeoBundle 'altercation/vim-colors-solarized'
 
 
-""" extend standard funcitonality
+""" extend standard functionality
   "
 
   " Defaults everyone can agree on
@@ -114,6 +114,7 @@
 
   " create cscope database and connect to existing proper database automatically
     NeoBundle 'cscope.vim'
+      set nocscopetag
 
   " Tagbar for navigation by tags using CTags
     NeoBundle 'majutsushi/tagbar'
@@ -325,7 +326,7 @@
 
     " better than GitGutter
       NeoBundle 'mhinz/vim-signify'
-        let g:signify_vcs_list = [ 'git', 'hg' ]
+        let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]
         let g:signify_diffoptions = { 'git': '-b' }
 
 
