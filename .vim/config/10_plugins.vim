@@ -104,6 +104,8 @@
       let g:airline_enable_syntastic = 1
       let g:airline_enable_tagbar = 1
 
+  " A text object to turn foo_bar_baz into foo_baz *and* quuxSpamEggs into quuxEggs *and* shine your shoes
+    NeoBundleLazy 'Julian/vim-textobj-variable-segment', {'depends': 'kana/vim-textobj-user'}
 
 
 """ IDE functionality
