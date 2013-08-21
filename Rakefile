@@ -7,7 +7,16 @@ CLEAN.add("#{HOME}/.gvim*")
 CLEAN.add("#{HOME}/.vim*")
 CLEAN.add('.vim/bundle/**')
 
+CLOBBER.add('.vim/custom')
+CLOBBER.add('.vim/easytags')
+CLOBBER.add('.vim/UltiSnips')
+
+directory '.vim/custom'
+directory '.vim/easytags'
+directory '.vim/UltiSnips'
+
 task :default => [:install]
+task :install => ['.vim/custom', '.vim/easytags', '.vim/UltiSnips', :clean]
 task :clean => [:backup]
 
 desc "backup existing vim files"
@@ -25,7 +34,7 @@ task :backup do |t,args|
 end
 
 desc 'install vim config'
-task :install => [:clean] do
+task :install do
   expand(Dir['.vim*']).each do |file|
     RakeFileUtils.symlink(file, HOME)
   end
@@ -44,11 +53,11 @@ def find_existing_files
   end
 end
 
-def expand files
+def expand( files )
   files.map {|f| File.expand_path(f) }
 end
 
-def message msg
+def message( msg )
   length = 80
   b = "\e[1m"
   t = "\e[0m"
