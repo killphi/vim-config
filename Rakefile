@@ -5,18 +5,16 @@ HOME = File.expand_path '~'
 
 CLEAN.add("#{HOME}/.gvim*")
 CLEAN.add("#{HOME}/.vim*")
-CLEAN.add('.vim/bundle/**')
+CLEAN.add('.vim/bundle/*')
 
-CLOBBER.add('.vim/custom')
-CLOBBER.add('.vim/easytags')
-CLOBBER.add('.vim/UltiSnips')
+CLOBBER.add('.vim/easytags*')
+CLOBBER.add('.vim/UltiSnips*')
 
-directory '.vim/custom'
 directory '.vim/easytags'
 directory '.vim/UltiSnips'
 
 task :default => [:install]
-task :install => ['.vim/custom', '.vim/easytags', '.vim/UltiSnips', :clean]
+task :install => ['.vim/easytags', '.vim/UltiSnips', :clean]
 task :clean => [:backup]
 
 desc "backup existing vim files"

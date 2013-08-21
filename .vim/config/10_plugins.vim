@@ -122,10 +122,16 @@
     NeoBundle 'cscope.vim'
       set nocscopetag
 
+  " Automated tag file generation and syntax highlighting of tags
+    NeoBundle 'xolox/vim-easytags', {'depends': 'xolox/vim-misc'}
+      let g:easytags_dynamic_files = 1
+      let g:easytags_by_filetype = '~/.vim/easytags/'
+      let g:easytags_resolvelinks = 1
+      let g:easytags_events = ['BufWritePost']
+
   " Tagbar for navigation by tags using CTags
     NeoBundle 'majutsushi/tagbar'
       let g:tagbar_autofocus = 1
-      map <Leader>rt :!ctags --extra=+f -R .<CR><CR>
       map <Leader>. :TagbarToggle<CR>
 
   " NERDTree for project drawer
