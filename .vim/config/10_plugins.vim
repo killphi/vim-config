@@ -88,6 +88,9 @@
   " indent motion for navigation
     NeoBundle 'indent-motion'
 
+  " MD5 - 'nuff said
+    NeoBundle 'md5.vim'
+
   " lean & mean statusline for vim that's light as air
     NeoBundle 'bling/vim-airline'
       let g:airline_theme = 'solarized'
@@ -105,7 +108,7 @@
       let g:airline_enable_tagbar = 1
 
   " A text object to turn foo_bar_baz into foo_baz *and* quuxSpamEggs into quuxEggs *and* shine your shoes
-    NeoBundleLazy 'Julian/vim-textobj-variable-segment', {'depends': 'kana/vim-textobj-user'}
+    NeoBundle 'Julian/vim-textobj-variable-segment', {'depends': 'kana/vim-textobj-user'}
 
 
 """ IDE functionality
@@ -231,7 +234,7 @@
       NeoBundleLazy 'Javascript-Indentation', {'depends': 'IndentAnything', 'autoload': {'filetypes': 'javascript'}}
 
     "
-      NeoBundleLazy 'pangloss/vim-javascript', {'autoload': {'filetypes': 'javascript'}, 'build': {'unix': 'rm -rf indent; git commit -am "remove indentation"'}}
+      NeoBundleLazy 'pangloss/vim-javascript', {'autoload': {'filetypes': 'javascript'}, 'build': {'unix': 'git rm -rf indent; git add . -A; git commit -m "remove indentation"'}}
 
     " Coffee script
       NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload': {'filetypes': 'coffee'}}
@@ -301,7 +304,7 @@
 
     " xml.vim + xsltassisant
       NeoBundleLazy 'xml.vim', {'autoload': {'filetypes': ['xml', 'xslt']}, 'augroup': 'XmlVim'}
-      NeoBundleLazy 'xslhelper.vim', {'autoload': {'filetypes': 'xslt'}, 'build': {'unix': 'mv -f ftplugin/xsl{helper,t}.vim; git commit -am "rename ftplugin"'}}
+      NeoBundleLazy 'xslhelper.vim', {'autoload': {'filetypes': 'xslt'}, 'build': {'unix': 'git mv -f ftplugin/xsl{helper,t}.vim; git add . -A; git commit -m "rename ftplugin"'}}
 
     " ghetto HTML/XML mappings
       NeoBundleLazy 'tpope/vim-ragtag', {'autoload': {'filetypes': ['xml', 'xslt']}, 'augroup': 'XmlVim'}
