@@ -10,7 +10,7 @@
 
 " use 2 spaces for tabs
   "
-  set expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  " set expandtab tabstop=2 softtabstop=2 shiftwidth=2
 
 " enable line numbers, and don't make them any wider than necessary
   "
