@@ -15,8 +15,9 @@
   "
   "" gist repos
   " NeoBundle 'gist:Shougo/656148', {
-  "   \ 'name': 'everything.vim',
-  "   \ 'script_type': 'plugin'}
+  "       \   'name': 'everything.vim',
+  "       \   'script_type': 'plugin'
+  "       \ }
   "
   "" Non git repos
   " NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
@@ -62,13 +63,13 @@
 
   " Interactive command execution
     NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
+          \   'build' : {
+          \     'windows' : 'make -f make_mingw32.mak',
+          \     'cygwin' : 'make -f make_cygwin.mak',
+          \     'mac' : 'make -f make_mac.mak',
+          \     'unix' : 'make -f make_unix.mak',
+          \   }
+          \ }
 
   " gundo for awesome undo tree visualization
     NeoBundle 'sjl/gundo.vim'
@@ -128,7 +129,9 @@
       map <Leader>. :TagbarToggle<CR>
 
   " NERDTree for project drawer
-    NeoBundle 'scrooloose/nerdtree', { 'augroup' : 'NERDTreeHijackNetrw'}
+    NeoBundle 'scrooloose/nerdtree', {
+          \ 'augroup' : 'NERDTreeHijackNetrw'
+          \ }
       let NERDTreeHijackNetrw = 0
       nmap gt :NERDTreeToggle<CR>
       nmap g :NERDTree \| NERDTreeToggle \| NERDTreeFind<CR>
@@ -231,16 +234,27 @@
     "
 
     " better JS indent
-      NeoBundleLazy 'Javascript-Indentation', {'depends': 'IndentAnything', 'autoload': {'filetypes': 'javascript'}}
+      NeoBundleLazy 'Javascript-Indentation', {
+            \   'depends': 'IndentAnything',
+            \   'autoload': {'filetypes': 'javascript'}
+            \ }
 
     "
-      NeoBundleLazy 'pangloss/vim-javascript', {'autoload': {'filetypes': 'javascript'}, 'build': {'unix': 'git rm -rf indent; git add . -A; git commit -m "remove indentation"'}}
+      NeoBundleLazy 'pangloss/vim-javascript', {
+            \   'autoload': {'filetypes': 'javascript'},
+            \   'build': {
+            \     'unix': 'git rm -rf indent; git add . -A; git commit -m "remove indentation"'
+            \   }
+            \ }
 
     " Coffee script
       NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload': {'filetypes': 'coffee'}}
 
     " JS Beautify
-      NeoBundleLazy 'maksimr/vim-jsbeautify', {'autoload': {'filetypes': ['javascript', 'html', 'css']}, 'augroup': 'JSBeautify'}
+      NeoBundleLazy 'maksimr/vim-jsbeautify', {
+            \   'autoload': {'filetypes': [ 'javascript', 'html', 'css' ]},
+            \   'augroup': 'JSBeautify'
+            \ }
         augroup JSBeautify
           autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
           " for html
@@ -271,7 +285,10 @@
       NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': 'ruby'}}
 
     " custom text object for selecting ruby blocks
-      NeoBundleLazy 'nelstrom/vim-textobj-rubyblock', {'depends': 'kana/vim-textobj-user', 'autoload': {'filetypes': 'ruby'}}
+      NeoBundleLazy 'nelstrom/vim-textobj-rubyblock', {
+            \   'depends': 'kana/vim-textobj-user',
+            \   'autoload': {'filetypes': 'ruby'}
+            \ }
 
     " Lightweight support for Ruby's Bundler'
       NeoBundleLazy 'tpope/vim-bundler', {'autoload': {'filetypes': 'ruby'}}
@@ -280,7 +297,10 @@
       NeoBundleLazy 'tpope/vim-rake', {'autoload': {'filetypes': 'ruby'}}
 
     " rails.vim, nuff' said
-      NeoBundleLazy 'tpope/vim-rails', {'autoload': {'filetypes': 'ruby'}, 'augroup': 'TPopeVimRails'}
+      NeoBundleLazy 'tpope/vim-rails', {
+            \   'autoload': {'filetypes': 'ruby'},
+            \   'augroup': 'TPopeVimRails'
+            \ }
         augroup TPopeVimRails
           autocmd FileType ruby map <Leader>oc :Rcontroller<Space>
           autocmd FileType ruby map <Leader>ov :Rview<Space>
@@ -303,11 +323,22 @@
       augroup END
 
     " xml.vim + xsltassisant
-      NeoBundleLazy 'xml.vim', {'autoload': {'filetypes': ['xml', 'xslt']}, 'augroup': 'XmlVim'}
-      NeoBundleLazy 'xslhelper.vim', {'autoload': {'filetypes': 'xslt'}, 'build': {'unix': 'git mv -f ftplugin/xsl{helper,t}.vim; git add . -A; git commit -m "rename ftplugin"'}}
+      NeoBundleLazy 'xml.vim', {
+            \   'autoload': {'filetypes': [ 'xml', 'xslt' ]},
+            \   'augroup': 'XmlVim'
+            \ }
+      NeoBundleLazy 'xslhelper.vim', {
+            \   'autoload': {'filetypes': 'xslt'},
+            \   'build': {
+            \     'unix': 'git mv -f ftplugin/xsl{helper,t}.vim; git add . -A; git commit -m "rename ftplugin"'
+            \   }
+            \ }
 
     " ghetto HTML/XML mappings
-      NeoBundleLazy 'tpope/vim-ragtag', {'autoload': {'filetypes': ['xml', 'xslt']}, 'augroup': 'XmlVim'}
+      NeoBundleLazy 'tpope/vim-ragtag', {
+            \   'autoload': {'filetypes': [ 'xml', 'xslt' ]},
+            \   'augroup': 'XmlVim'
+            \ }
 
 
   """ TMux
@@ -335,7 +366,7 @@
         let g:signify_diffoptions = { 'git': '-b' }
 
     " TextObj SignifyHunk
-      NeoBundle 'killphi/vim-textobj-signify-hunk', {'depends': ['kana/vim-textobj-user', 'mhinz/vim-signify']}
+      NeoBundle 'killphi/vim-textobj-signify-hunk', {'depends': [ 'kana/vim-textobj-user', 'mhinz/vim-signify' ]}
 
 
   """ VimL
@@ -355,7 +386,10 @@
       NeoBundleLazy 'tpope/vim-markdown', {'autoload': {'filetypes': 'markdown'}}
 
     " Markdown preview to quickly preview markdown files
-      NeoBundleLazy 'maba/vim-markdown-preview', {'autoload': {'filetypes': 'markdown'}, 'augroup': 'MarkdownVim'}
+      NeoBundleLazy 'maba/vim-markdown-preview', {
+            \   'autoload': {'filetypes': 'markdown'},
+            \   'augroup': 'MarkdownVim'
+            \ }
 
 
   """ Powershell
