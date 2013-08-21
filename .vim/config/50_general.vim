@@ -10,7 +10,9 @@
 
 " use 2 spaces for tabs
   "
-  " set expandtab tabstop=2 softtabstop=2 shiftwidth=2
+  if !&et
+    set expandtab softtabstop=2 shiftwidth=2
+  endif
 
 " enable line numbers, and don't make them any wider than necessary
   "
@@ -55,7 +57,7 @@
 
 " set swap directory
   "
-  set directory=~/.vimswap,/tmp
+  set directory=~/.vim/swap,/tmp
 
 " set path more sensible, duh
   "

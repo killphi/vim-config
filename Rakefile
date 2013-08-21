@@ -9,12 +9,14 @@ CLEAN.add('.vim/bundle/*')
 
 CLOBBER.add('.vim/easytags*')
 CLOBBER.add('.vim/UltiSnips*')
+CLOBBER.add('.vim/swap*')
 
 directory '.vim/easytags'
 directory '.vim/UltiSnips'
+directory '.vim/swap'
 
 task :default => [:install]
-task :install => ['.vim/easytags', '.vim/UltiSnips', :clean]
+task :install => ['.vim/swap', '.vim/easytags', '.vim/UltiSnips', :clean]
 task :clean => [:backup]
 
 desc "backup existing vim files"
