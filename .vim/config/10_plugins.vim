@@ -127,7 +127,6 @@
       let g:easytags_dynamic_files = 1
       let g:easytags_by_filetype = '~/.vim/easytags/'
       let g:easytags_resolvelinks = 1
-      let g:easytags_events = ['BufWritePost']
 
   " Tagbar for navigation by tags using CTags
     NeoBundle 'majutsushi/tagbar'
@@ -192,7 +191,7 @@
       " syntastic is too slow for haml and sass
       let g:syntastic_mode_map = { 'mode': 'active',
                                 \ 'active_filetypes': [],
-                                \ 'passive_filetypes': ['haml','scss','sass'] }
+                                \ 'passive_filetypes': [ 'haml','scss','sass' ] }
 
   " indentLines - mark indendation
     NeoBundle 'Yggdroot/indentLine'
@@ -288,23 +287,26 @@
     "
 
     " Vim/Ruby Configuration Files
-      NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': 'ruby'}}
+      NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': [ 'ruby', 'eruby' ]}}
+
+    " Switch Ruby versions from inside Vim
+      NeoBundleLazy 'tpope/vim-rvm', {'autoload': {'filetypes': [ 'ruby', 'eruby' ]}}
 
     " custom text object for selecting ruby blocks
       NeoBundleLazy 'nelstrom/vim-textobj-rubyblock', {
             \   'depends': 'kana/vim-textobj-user',
-            \   'autoload': {'filetypes': 'ruby'}
+            \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
             \ }
 
     " Lightweight support for Ruby's Bundler'
-      NeoBundleLazy 'tpope/vim-bundler', {'autoload': {'filetypes': 'ruby'}}
+      NeoBundleLazy 'tpope/vim-bundler', {'autoload': {'filetypes': [ 'ruby', 'eruby' ]}}
 
     " like rails.vim without the rails
-      NeoBundleLazy 'tpope/vim-rake', {'autoload': {'filetypes': 'ruby'}}
+      NeoBundleLazy 'tpope/vim-rake', {'autoload': {'filetypes': [ 'ruby', 'eruby' ]}}
 
     " rails.vim, nuff' said
       NeoBundleLazy 'tpope/vim-rails', {
-            \   'autoload': {'filetypes': 'ruby'},
+            \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]},
             \   'augroup': 'TPopeVimRails'
             \ }
         augroup TPopeVimRails
@@ -318,7 +320,7 @@
         augroup END
 
     " Refactoring tool for Ruby
-      NeoBundleLazy 'killphi/vim-ruby-refactoring', {'autoload': {'filetypes': 'ruby'}}
+      NeoBundleLazy 'killphi/vim-ruby-refactoring', {'autoload': {'filetypes': [ 'ruby', 'eruby' ]}}
 
 
   """ XML
