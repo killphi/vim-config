@@ -57,7 +57,19 @@
 
 " set swap directory
   "
-  set directory=~/.vim/swap,/tmp
+  set directory=~/.vim/vimswap,/tmp
+
+" enhance viminfo
+  "
+  set viminfo+=r/media
+  set viminfo+=r/mnt
+  set viminfo+=r/tmp
+  set viminfo+=n~/.vim/viminfo
+
+" set undo file
+  "
+  set undodir=~/.vim/vimundo
+  set undofile
 
 " set path more sensible, duh
   "

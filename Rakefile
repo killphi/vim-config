@@ -7,16 +7,22 @@ CLEAN.add("#{HOME}/.gvim*")
 CLEAN.add("#{HOME}/.vim*")
 CLEAN.add('.vim/bundle/*')
 
-CLOBBER.add('.vim/easytags*')
-CLOBBER.add('.vim/UltiSnips*')
-CLOBBER.add('.vim/swap*')
+CLOBBER.add('.vim/easytags/**/*')
+CLOBBER.add('.vim/UltiSnips/**/*')
+CLOBBER.add('.vim/vim*')
 
 directory '.vim/easytags'
 directory '.vim/UltiSnips'
-directory '.vim/swap'
+directory '.vim/bundle'
+directory '.vim/vimswap'
+directory '.vim/vimundo'
 
+task :directories => [
+    'bundle', 'easytags', 'UltiSnips',
+    'vimswap', 'vimundo'
+  ].map {|x| '.vim/' << x }
 task :default => [:install]
-task :install => ['.vim/swap', '.vim/easytags', '.vim/UltiSnips', :clean]
+task :install => [:directories, :clean]
 task :clean => [:backup]
 
 desc "backup existing vim files"

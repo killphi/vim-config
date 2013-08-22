@@ -1,7 +1,11 @@
 backup_*
-!.vim*
+!.vim
+!.vimrc
 .vim/.netrwhist
 .vim/bundle
 .vim/UltiSnips
 .vim/easytags
+.vim/vimswap
+.vim/viminfo
+.vim/vimundo
 .vim/custom
