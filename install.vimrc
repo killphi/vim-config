@@ -8,7 +8,7 @@ endif
 call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-runtime! config/10_plugins.vim
+runtime! config/_10_plugins.vim
 
 NeoBundleInstall
 NeoBundleDocs
