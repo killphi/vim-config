@@ -124,13 +124,18 @@
 
   " Automated tag file generation and syntax highlighting of tags
     NeoBundle 'xolox/vim-easytags', {'depends': 'xolox/vim-misc'}
-      let g:easytags_dynamic_files = 1
-      let g:easytags_by_filetype = '~/.vim/easytags/'
+      execute "set tags+=" . resolve(expand('~/.vim/vimtags'))
+      let g:easytags_file = '~/.vim/vimtags'
+      let g:easytags_dynamic_files = 2
+      let g:easytags_by_filetype = 1
       let g:easytags_resolvelinks = 1
+      autocmd BufEnter * call _30_functions#buffer_tags()
 
   " Tagbar for navigation by tags using CTags
     NeoBundle 'majutsushi/tagbar'
       let g:tagbar_autofocus = 1
+      let g:tagbar_autoclose = 1
+      let g:tagbar_singleclick = 1
       map <Leader>. :TagbarToggle<CR>
 
   " NERDTree for project drawer

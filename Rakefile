@@ -5,22 +5,21 @@ HOME = File.expand_path '~'
 
 CLEAN.add("#{HOME}/.gvim*")
 CLEAN.add("#{HOME}/.vim*")
-CLEAN.add('.vim/bundle/*')
 
-CLOBBER.add('.vim/easytags/**/*')
-CLOBBER.add('.vim/UltiSnips/**/*')
+CLOBBER.add('.vim/bundle/*')
+CLOBBER.add('.vim/UltiSnips/*')
 CLOBBER.add('.vim/vim*')
 
-directory '.vim/easytags'
 directory '.vim/UltiSnips'
 directory '.vim/bundle'
 directory '.vim/vimswap'
 directory '.vim/vimundo'
 
 task :directories => [
-    'bundle', 'easytags', 'UltiSnips',
+    'bundle', 'UltiSnips',
     'vimswap', 'vimundo'
   ].map {|x| '.vim/' << x }
+
 task :default => [:install]
 task :install => [:directories, :clean]
 task :clean => [:backup]
