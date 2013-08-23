@@ -6,6 +6,7 @@ HOME = File.expand_path '~'
 CLEAN.add("#{HOME}/.gvim*")
 CLEAN.add("#{HOME}/.vim*")
 
+CLOBBER.add('~/.cscope.vim*')
 CLOBBER.add('.vim/bundle/*')
 CLOBBER.add('.vim/UltiSnips/*')
 CLOBBER.add('.vim/vim*')
