@@ -83,8 +83,11 @@
       let g:eregex_default_enable = 0
       nnoremap <leader>/ :call eregex#toggle()<CR>
 
-  " defines a new text object representing lines of code at the same indent level
-    NeoBundle 'michaeljsmith/vim-indent-object'
+  " Text objects for indented blocks of lines
+    NeoBundle 'kana/vim-textobj-indent', {'depends': 'kana/vim-textobj-user'}
+
+  " Text objects for comments
+    NeoBundle 'glts/vim-textobj-comment', {'depends': 'kana/vim-textobj-user'}
 
   " indent motion for navigation
     NeoBundle 'indent-motion'
