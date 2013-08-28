@@ -203,6 +203,8 @@
 
   " indentLines - mark indendation
     NeoBundle 'Yggdroot/indentLine'
+      let g:indentLine_enabled = 1
+      let g:indentLine_fileTypeExlude = ['text', 'gitcommit']
 
   " auto close brackets 'n stuff
     NeoBundle 'MartinLafreniere/vim-PairTools'
