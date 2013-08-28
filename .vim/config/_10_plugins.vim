@@ -136,6 +136,9 @@
       let g:tagbar_autofocus = 1
       let g:tagbar_autoclose = 1
       let g:tagbar_singleclick = 1
+      let g:tagbar_sort = 0
+      let g:tagbar_autoshowtag = 1
+
       map <Leader>. :TagbarToggle<CR>
 
   " NERDTree for project drawer
