@@ -250,19 +250,8 @@
   """ JavaScript
     "
 
-    " better JS indent
-      NeoBundleLazy 'Javascript-Indentation', {
-            \   'depends': 'IndentAnything',
-            \   'autoload': {'filetypes': 'javascript'}
-            \ }
-
-    "
-      NeoBundleLazy 'pangloss/vim-javascript', {
-            \   'autoload': {'filetypes': 'javascript'},
-            \   'build': {
-            \     'unix': 'git rm -rf indent; git add . -A; git commit -m "remove indentation"'
-            \   }
-            \ }
+    " Better JS handling
+      NeoBundleLazy 'pangloss/vim-javascript', {'autoload': {'filetypes': 'javascript'}}
 
     " Coffee script
       NeoBundleLazy 'kchmck/vim-coffee-script', {'autoload': {'filetypes': 'coffee'}}
