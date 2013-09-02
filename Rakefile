@@ -51,10 +51,16 @@ task :install do
     RakeFileUtils.symlink(file, HOME)
   end
 
-  message("cloning Shougo/neobundle.vim into ~/.vim/bundle/")
-  puts `cd ~/.vim/bundle; git clone --recursive https://github.com/Shougo/neobundle.vim`
+  bundle_path = File.expand_path('~/.vim/bundle/neobundle.vim')
+  if File.directory?(bundle_path)
+    message('Shougo/neobundle.vim already exists, updating')
+    puts `cd ~/.vim/bundle; git pull`
+  else
+    message('cloning Shougo/neobundle.vim into ~/.vim/bundle/')
+    puts `cd ~/.vim/bundle; git clone --recursive https://github.com/Shougo/neobundle.vim`
+  end
 
-  message("installing bundles")
+  message('installing bundles')
   puts `vim -u install.vimrc`
 end
 
