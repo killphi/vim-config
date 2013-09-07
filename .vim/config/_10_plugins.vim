@@ -38,7 +38,11 @@
     NeoBundle 'tpope/vim-sensible'
 
   " provides some utility functions and commands for programming
-    NeoBundle 'L9'
+    NeoBundle 'L9', {
+          \   'build': {
+          \     'unix': 'git rm -f doc/l9.jax; git add . -A; git commit -m "remove chinese help"'
+          \   }
+          \ }
 
   " better matchit
     NeoBundle 'tsaleh/vim-matchit'
@@ -76,7 +80,7 @@
       map <Leader>h :GundoToggle<CR>
 
   " use VIm as a 3-way-merge tool
-    NeoBundle 'sjl/splice.vim'
+    NeoBundle 'killphi/splice.vim'
 
   " Perl/Ruby style regexp notation
     NeoBundle 'othree/eregex.vim'
