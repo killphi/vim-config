@@ -291,8 +291,9 @@
   """ Ruby
     "
 
-    " Vim/Ruby Configuration Files
-      NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': [ 'ruby', 'eruby' ]}}
+    " this is distro bundled
+    " " Vim/Ruby Configuration Files
+    "   NeoBundleLazy 'vim-ruby/vim-ruby', {'autoload': {'filetypes': [ 'ruby', 'eruby' ]}}
 
     " Switch Ruby versions from inside Vim
       NeoBundleLazy 'tpope/vim-rvm', {'autoload': {'filetypes': [ 'ruby', 'eruby' ]}}
