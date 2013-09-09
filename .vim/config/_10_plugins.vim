@@ -433,6 +433,16 @@
       NeoBundleLazy 'killphi/vim-ebnf', {'autoload': {'filetypes': 'ebnf'}}
 
 
+  """ Elixir
+    "
+
+    " configuration files for Elixir
+      NeoBundleLazy 'elixir-lang/vim-elixir', {'autoload': {'filetypes': 'elixir'}}
+
+    " snippets for Elixir
+      NeoBundleLazy 'carlosgaldino/elixir-snippets', {'autoload': {'filetypes': 'elixir'}}
+
+
 
 " " plugin name + desc
 "   NeoBundle ''
