@@ -80,7 +80,7 @@
       map <Leader>h :GundoToggle<CR>
 
   " use VIm as a 3-way-merge tool
-    NeoBundle 'killphi/splice.vim'
+    NeoBundle 'killphi/splice.vim', {'rev': 'fix_spliceinit_crash'}
 
   " Perl/Ruby style regexp notation
     NeoBundle 'othree/eregex.vim'
