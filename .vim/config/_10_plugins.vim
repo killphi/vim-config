@@ -328,6 +328,9 @@
     " Refactoring tool for Ruby
       NeoBundleLazy 'killphi/vim-ruby-refactoring', {'autoload': {'filetypes': [ 'ruby', 'eruby' ]}}
 
+    " CodeQuality
+      NeoBundleLazy 'rainerborene/vim-reek', {'autoload': {'filetypes': [ 'ruby', 'eruby' ]}}
+
 
   """ XML
     "
