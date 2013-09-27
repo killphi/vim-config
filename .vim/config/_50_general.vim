@@ -89,6 +89,6 @@
 
 " helper for width between 80 and 120
   "
-  set colorcolumn=81,121,122
+  set colorcolumn=80,120,121
 
 " vim:set fdm=indent:
