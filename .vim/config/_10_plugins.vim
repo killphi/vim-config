@@ -330,6 +330,7 @@
 
     " CodeQuality
       NeoBundleLazy 'rainerborene/vim-reek', {'autoload': {'filetypes': [ 'ruby', 'eruby' ]}}
+      let g:reek_always_show = 0
 
 
   """ XML
