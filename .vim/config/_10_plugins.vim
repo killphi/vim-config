@@ -311,7 +311,7 @@
       NeoBundleLazy 'tpope/vim-rake', {'autoload': {'filetypes': [ 'ruby', 'eruby' ]}}
 
     " rails.vim, nuff' said
-      NeoBundleLazy 'tpope/vim-rails', {
+      NeoBundle 'tpope/vim-rails', {
             \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]},
             \   'augroup': 'TPopeVimRails'
             \ }
