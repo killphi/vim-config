@@ -244,12 +244,6 @@
       NeoBundleLazy 'html_annoyance', {'autoload': {'filetypes': 'html'}}
 
 
-  """ CSS
-    "
-
-    " Highlight colors in css files
-      NeoBundleLazy 'skammer/vim-css-color', {'autoload': {'filetypes': [ 'javascript', 'html', 'css' ]}}
-
 
   """ JavaScript
     "
