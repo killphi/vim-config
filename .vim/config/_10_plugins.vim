@@ -206,11 +206,22 @@
       let g:syntastic_mode_map = { 'mode': 'active',
                                 \ 'active_filetypes': [],
                                 \ 'passive_filetypes': [ 'haml','scss','sass' ] }
+      " ruby checking includes rubocop
+      let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
-  " indentLines - mark indendation
-    NeoBundle 'Yggdroot/indentLine'
-      let g:indentLine_enabled = 1
-      let g:indentLine_fileTypeExlude = ['text', 'gitcommit']
+  " " indentLines - mark indendation
+  "   NeoBundle 'Yggdroot/indentLine'
+  "     let g:indentLine_enabled = 1
+  "     let g:indentLine_fileTypeExlude = ['text', 'gitcommit']
+  "     let g:indentLine_char = '│'
+
+  " indent guides - visually displaying indent levels in code
+    NeoBundle 'nathanaelkane/vim-indent-guides'
+      let g:indent_guides_enable_on_vim_startup = 1
+      let g:indent_guides_start_level = 3
+      let g:indent_guides_auto_colors = 0
+        autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=0
+        autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=8
 
   " auto close brackets 'n stuff
     NeoBundle 'MartinLafreniere/vim-PairTools'
@@ -242,6 +253,9 @@
 
     " fix HTML <a> underlines of leading/trailing whitespace
       NeoBundleLazy 'html_annoyance', {'autoload': {'filetypes': 'html'}}
+
+    " emmet.io - formerly known as ZenCode
+      NeoBundle 'mattn/emmet-vim'
 
 
 
