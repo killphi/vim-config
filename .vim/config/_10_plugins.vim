@@ -281,12 +281,31 @@
           autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
         augroup END
 
+    " TypeScript
+      NeoBundleLazy 'leafgarland/typescript-vim', {
+            \   'autoload': {'filetypes': 'typescript'},
+            \   'augroup': 'TypeScriptErrors'
+            \ }
+        augroup TypeScriptErrors
+          autocmd QuickFixCmdPost [^l]* nested cwindow
+          autocmd QuickFixCmdPost    l* nested lwindow
+        augroup END
+
+    " TypeScript Tools
+      NeoBundleLazy 'clausreinke/typescript-tools', {
+            \   'depends': 'leafgarland/typescript-vim',
+            \   'autoload': {'filetypes': 'typescript'},
+            \   'build': {
+            \     'unix': 'npm install -g'
+            \   }
+            \ }
+
 
 
   """ Templating
     "
 
-    " Mustache
+    " Mustache & Handlebars
       NeoBundleLazy 'juvenn/mustache.vim', {'autoload': {'filetypes': 'mustache'}}
 
   """ Config files
