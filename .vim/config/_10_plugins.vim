@@ -34,13 +34,17 @@
 """ extend standard functionality
   "
 
+  " Build scripts
+    NeoBundle 'killphi/vim-build-scripts'
+
   " Defaults everyone can agree on
     NeoBundle 'tpope/vim-sensible'
 
   " provides some utility functions and commands for programming
     NeoBundle 'L9', {
+          \   'depends': 'killphi/vim-build-scripts',
           \   'build': {
-          \     'unix': 'git rm -f doc/l9.jax; git add . -A; git commit -m "remove chinese help"'
+          \     'unix': '../vim-build-scripts/L9.sh'
           \   }
           \ }
 
@@ -296,7 +300,7 @@
             \   'depends': 'leafgarland/typescript-vim',
             \   'autoload': {'filetypes': 'typescript'},
             \   'build': {
-            \     'unix': 'npm install -g'
+            \     'unix': 'sudo npm install -g'
             \   }
             \ }
 
@@ -374,8 +378,9 @@
             \ }
       NeoBundleLazy 'xslhelper.vim', {
             \   'autoload': {'filetypes': 'xslt'},
+            \   'depends': 'killphi/vim-build-scripts',
             \   'build': {
-            \     'unix': 'git mv -f ftplugin/xsl{helper,t}.vim; git add . -A; git commit -m "rename ftplugin"'
+            \     'unix': '../vim-build-scripts/xslhelper.vim.sh'
             \   }
             \ }
 
