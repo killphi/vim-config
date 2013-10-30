@@ -366,15 +366,13 @@
 
   """ XML
     "
-      augroup XmlVim
-        autocmd FileType xml,xslt let xml_tag_completion_map = '<C-k>'
+      augroup RagTagVim
         autocmd FileType xml,xslt let g:ragtag_global_maps = 1
       augroup END
 
     " xml.vim + xsltassisant
       NeoBundleLazy 'xml.vim', {
             \   'autoload': {'filetypes': [ 'xml', 'xslt' ]},
-            \   'augroup': 'XmlVim'
             \ }
       NeoBundleLazy 'xslhelper.vim', {
             \   'autoload': {'filetypes': 'xslt'},
@@ -387,7 +385,7 @@
     " ghetto HTML/XML mappings
       NeoBundleLazy 'tpope/vim-ragtag', {
             \   'autoload': {'filetypes': [ 'xml', 'xslt' ]},
-            \   'augroup': 'XmlVim'
+            \   'augroup': 'RagTagVim'
             \ }
 
 
