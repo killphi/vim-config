@@ -229,6 +229,7 @@
 
   " auto close brackets 'n stuff
     NeoBundle 'MartinLafreniere/vim-PairTools'
+    NeoBundle 'killphi/vim-PairTools-filetypes', {'depends': 'MartinLafreniere/vim-PairTools'}
 
   " helpers for UNIX
     NeoBundle 'tpope/vim-eunuch'
@@ -410,6 +411,7 @@
 
     " better than GitGutter
         NeoBundle 'mhinz/vim-signify'
+        let g:signify_sign_overwrite = 1
         let g:signify_vcs_list = [ 'git', 'hg' ]
         let g:signify_diffoptions = { 'git': '-b' }
 
