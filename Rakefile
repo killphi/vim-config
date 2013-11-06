@@ -54,7 +54,7 @@ task :install do
   bundle_path = File.expand_path('~/.vim/bundle/neobundle.vim')
   if File.directory?(bundle_path)
     message('Shougo/neobundle.vim already exists, updating')
-    puts `cd ~/.vim/bundle; git pull`
+    puts `cd ~/.vim/bundle/neobundle.vim/; git pull`
   else
     message('cloning Shougo/neobundle.vim into ~/.vim/bundle/')
     puts `cd ~/.vim/bundle; git clone --recursive https://github.com/Shougo/neobundle.vim`
