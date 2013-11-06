@@ -224,8 +224,8 @@
       let g:indent_guides_enable_on_vim_startup = 1
       let g:indent_guides_start_level = 3
       let g:indent_guides_auto_colors = 0
-        autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=0
-        autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=8
+      autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=0
+      autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=8
 
   " auto close brackets 'n stuff
     NeoBundle 'MartinLafreniere/vim-PairTools'
@@ -233,6 +233,13 @@
 
   " helpers for UNIX
     NeoBundle 'tpope/vim-eunuch'
+
+  " :substitute preview
+    NeoBundle 'osyo-manga/vim-over'
+      nnoremap <silent> <Leader>os :OverCommandLine<CR>s/
+      nnoremap <silent> <Leader>o% :OverCommandLine<CR>%s/
+      vnoremap <silent> <Leader>os :OverCommandLine<CR>s/
+
 
 
   """ Snippets
