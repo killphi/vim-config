@@ -140,6 +140,7 @@
       let g:easytags_dynamic_files = 2
       let g:easytags_by_filetype = 1
       let g:easytags_resolvelinks = 1
+      let g:easytags_auto_highlight = 0
       autocmd BufEnter * call _30_functions#buffer_tags()
 
   " Tagbar for navigation by tags using CTags
@@ -419,7 +420,7 @@
     " better than GitGutter
         NeoBundle 'mhinz/vim-signify'
         let g:signify_sign_overwrite = 1
-        let g:signify_vcs_list = [ 'git', 'hg' ]
+        let g:signify_vcs_list = [ 'git' ]
         let g:signify_diffoptions = { 'git': '-b' }
 
     " TextObj SignifyHunk
