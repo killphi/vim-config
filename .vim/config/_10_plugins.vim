@@ -236,9 +236,9 @@
 
   " :substitute preview
     NeoBundle 'osyo-manga/vim-over'
-      nnoremap <silent> <Leader>os :OverCommandLine<CR>s/
-      nnoremap <silent> <Leader>o% :OverCommandLine<CR>%s/
-      vnoremap <silent> <Leader>os :OverCommandLine<CR>s/
+      nnoremap <silent> <Leader>:s :OverCommandLine<CR>s/
+      nnoremap <silent> <Leader>:% :OverCommandLine<CR>%s/
+      vnoremap <silent> <Leader>:s :OverCommandLine<CR>s/
 
 
 
