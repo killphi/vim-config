@@ -206,19 +206,13 @@
   " Syntastic for catching syntax errors on save
     NeoBundle 'scrooloose/syntastic'
       let g:syntastic_enable_signs=1
-      let g:syntastic_quiet_warnings=1
+      let g:syntastic_quiet_messages = {'level': 'warnings'}
       " syntastic is too slow for haml and sass
       let g:syntastic_mode_map = { 'mode': 'active',
                                 \ 'active_filetypes': [],
                                 \ 'passive_filetypes': [ 'haml','scss','sass' ] }
       " ruby checking includes rubocop
       let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-
-  " " indentLines - mark indendation
-  "   NeoBundle 'Yggdroot/indentLine'
-  "     let g:indentLine_enabled = 1
-  "     let g:indentLine_fileTypeExlude = ['text', 'gitcommit']
-  "     let g:indentLine_char = '│'
 
   " indent guides - visually displaying indent levels in code
     NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -241,6 +235,22 @@
       nnoremap <silent> <Leader>:% :OverCommandLine<CR>%s/
       vnoremap <silent> <Leader>:s :OverCommandLine<CR>s/
 
+  " distraction free mode
+    NeoBundle 'junegunn/goyo.vim'
+      function! g:goyo_before()
+        silent !tmux set status off
+        set wrap
+        SignifyToggle
+      endfunction
+
+      function! g:goyo_after()
+        silent !tmux set status on
+        set nowrap
+        SignifyToggle
+      endfunction
+
+      let g:goyo_callbacks = [function('g:goyo_before'), function('g:goyo_after')]
+      map <silent> <leader>G :Goyo<CR>
 
 
   """ Snippets
