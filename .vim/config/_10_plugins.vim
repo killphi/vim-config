@@ -167,6 +167,11 @@
     NeoBundle 'ervandew/supertab'
       let g:SuperTabDefaultCompletionType = 'context'
 
+  " Collaborative Editing for Vim
+    NeoBundle 'FredKSchott/CoVim'
+      let CoVim_default_name = "killphi"
+      let CoVim_default_port = "9999"
+
 
 """ Convenvience
   "
