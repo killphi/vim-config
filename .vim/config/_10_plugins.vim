@@ -44,7 +44,7 @@
     NeoBundle 'L9', {
           \   'depends': 'killphi/vim-build-scripts',
           \   'build': {
-          \     'unix': '../vim-build-scripts/L9.sh'
+          \     'unix': '../vim-build-scripts/jax.sh'
           \   }
           \ }
 
@@ -87,7 +87,12 @@
     NeoBundle 'sjl/splice.vim'
 
   " Perl/Ruby style regexp notation
-    NeoBundle 'othree/eregex.vim'
+    NeoBundle 'othree/eregex.vim', {
+          \   'depends': 'killphi/vim-build-scripts',
+          \   'build': {
+          \     'unix': '../vim-build-scripts/jax.sh'
+          \   }
+          \ }
       let g:eregex_default_enable = 0
       nnoremap <leader>/ :call eregex#toggle()<CR>
 
@@ -235,7 +240,12 @@
     NeoBundle 'tpope/vim-eunuch'
 
   " :substitute preview
-    NeoBundle 'osyo-manga/vim-over'
+    NeoBundle 'osyo-manga/vim-over', {
+          \   'depends': 'killphi/vim-build-scripts',
+          \   'build': {
+          \     'unix': '../vim-build-scripts/jax.sh'
+          \   }
+          \ }
       nnoremap <silent> <Leader>:s :OverCommandLine<CR>s/
       nnoremap <silent> <Leader>:% :OverCommandLine<CR>%s/
       vnoremap <silent> <Leader>:s :OverCommandLine<CR>s/
