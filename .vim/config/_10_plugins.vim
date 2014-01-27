@@ -460,26 +460,6 @@
             \ }
 
 
-  """ Powershell
-    "
-
-    " Windows PowerShell support
-      NeoBundleLazy 'PProvost/vim-ps1', {'autoload': {'filetypes': 'ps1'}}
-
-
-  """ Perl
-    "
-
-    " Support for Perl 5 and Perl 6
-      NeoBundleLazy 'vim-perl/vim-perl', {'autoload': {'filetypes': 'perl'}}
-
-      " search installed module/all modules and integrated with perldoc window
-      NeoBundleLazy 'c9s/cpan.vim', {'autoload': {'filetypes': 'perl'}}
-
-      " perl omnicompletion
-      NeoBundleLazy 'c9s/perlomni.vim', {'autoload': {'filetypes': 'perl'}}
-
-
   """ EBNF
     "
 
