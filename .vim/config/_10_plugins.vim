@@ -309,24 +309,24 @@
           autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
         augroup END
 
-    " TypeScript
-      NeoBundleLazy 'leafgarland/typescript-vim', {
-            \   'autoload': {'filetypes': 'typescript'},
-            \   'augroup': 'TypeScriptErrors'
-            \ }
-        augroup TypeScriptErrors
-          autocmd QuickFixCmdPost [^l]* nested cwindow
-          autocmd QuickFixCmdPost    l* nested lwindow
-        augroup END
-
-    " TypeScript Tools
-      NeoBundleLazy 'clausreinke/typescript-tools', {
-            \   'depends': 'leafgarland/typescript-vim',
-            \   'autoload': {'filetypes': 'typescript'},
-            \   'build': {
-            \     'unix': 'sudo npm install -g'
-            \   }
-            \ }
+    " " TypeScript
+    "   NeoBundleLazy 'leafgarland/typescript-vim', {
+    "         \   'autoload': {'filetypes': 'typescript'},
+    "         \   'augroup': 'TypeScriptErrors'
+    "         \ }
+    "     augroup TypeScriptErrors
+    "       autocmd QuickFixCmdPost [^l]* nested cwindow
+    "       autocmd QuickFixCmdPost    l* nested lwindow
+    "     augroup END
+    "
+    " " TypeScript Tools
+    "   NeoBundleLazy 'clausreinke/typescript-tools', {
+    "         \   'depends': 'leafgarland/typescript-vim',
+    "         \   'autoload': {'filetypes': 'typescript'},
+    "         \   'build': {
+    "         \     'unix': 'sudo npm install -g'
+    "         \   }
+    "         \ }
 
 
 
@@ -383,34 +383,34 @@
     " Refactoring tool for Ruby
       NeoBundleLazy 'killphi/vim-ruby-refactoring', {'autoload': {'filetypes': [ 'ruby', 'eruby' ]}}
 
-    " CodeQuality
-      NeoBundleLazy 'rainerborene/vim-reek', {'autoload': {'filetypes': [ 'ruby', 'eruby' ]}}
-      let g:reek_always_show = 0
+    " " CodeQuality
+    "   NeoBundleLazy 'rainerborene/vim-reek', {'autoload': {'filetypes': [ 'ruby', 'eruby' ]}}
+    "   let g:reek_always_show = 0
 
 
-  """ XML
-    "
-      augroup RagTagVim
-        autocmd FileType xml,xslt let g:ragtag_global_maps = 1
-      augroup END
-
-    " xml.vim + xsltassisant
-      NeoBundleLazy 'xml.vim', {
-            \   'autoload': {'filetypes': [ 'xml', 'xslt' ]},
-            \ }
-      NeoBundleLazy 'xslhelper.vim', {
-            \   'autoload': {'filetypes': 'xslt'},
-            \   'depends': 'killphi/vim-build-scripts',
-            \   'build': {
-            \     'unix': '../vim-build-scripts/xslhelper.vim.sh'
-            \   }
-            \ }
-
-    " ghetto HTML/XML mappings
-      NeoBundleLazy 'tpope/vim-ragtag', {
-            \   'autoload': {'filetypes': [ 'xml', 'xslt' ]},
-            \   'augroup': 'RagTagVim'
-            \ }
+  " """ XML
+  "   "
+  "     augroup RagTagVim
+  "       autocmd FileType xml,xslt let g:ragtag_global_maps = 1
+  "     augroup END
+  "
+  "   " xml.vim + xsltassisant
+  "     NeoBundleLazy 'xml.vim', {
+  "           \   'autoload': {'filetypes': [ 'xml', 'xslt' ]},
+  "           \ }
+  "     NeoBundleLazy 'xslhelper.vim', {
+  "           \   'autoload': {'filetypes': 'xslt'},
+  "           \   'depends': 'killphi/vim-build-scripts',
+  "           \   'build': {
+  "           \     'unix': '../vim-build-scripts/xslhelper.vim.sh'
+  "           \   }
+  "           \ }
+  "
+  "   " ghetto HTML/XML mappings
+  "     NeoBundleLazy 'tpope/vim-ragtag', {
+  "           \   'autoload': {'filetypes': [ 'xml', 'xslt' ]},
+  "           \   'augroup': 'RagTagVim'
+  "           \ }
 
 
   """ TMux
@@ -440,13 +440,6 @@
 
     " TextObj SignifyHunk
       NeoBundle 'killphi/vim-textobj-signify-hunk', {'depends': [ 'kana/vim-textobj-user', 'mhinz/vim-signify' ]}
-
-
-  """ VimL
-    "
-
-    " " plugin for developing VimL
-    "   NeoBundleLazy 'c9s/vim-dev-plugin', {'autoload': {'filetypes': 'vim'}}
 
 
   """ Markdown
