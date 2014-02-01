@@ -398,31 +398,6 @@
     "   let g:reek_always_show = 0
 
 
-  " """ XML
-  "   "
-  "     augroup RagTagVim
-  "       autocmd FileType xml,xslt let g:ragtag_global_maps = 1
-  "     augroup END
-  "
-  "   " xml.vim + xsltassisant
-  "     NeoBundleLazy 'xml.vim', {
-  "           \   'autoload': {'filetypes': [ 'xml', 'xslt' ]},
-  "           \ }
-  "     NeoBundleLazy 'xslhelper.vim', {
-  "           \   'autoload': {'filetypes': 'xslt'},
-  "           \   'depends': 'killphi/vim-build-scripts',
-  "           \   'build': {
-  "           \     'unix': '../vim-build-scripts/xslhelper.vim.sh'
-  "           \   }
-  "           \ }
-  "
-  "   " ghetto HTML/XML mappings
-  "     NeoBundleLazy 'tpope/vim-ragtag', {
-  "           \   'autoload': {'filetypes': [ 'xml', 'xslt' ]},
-  "           \   'augroup': 'RagTagVim'
-  "           \ }
-
-
   """ TMux
     "
 
@@ -483,6 +458,13 @@
 
     " snippets for Elixir
       NeoBundleLazy 'carlosgaldino/elixir-snippets', {'autoload': {'filetypes': 'elixir'}}
+
+
+  """ Docker
+    "
+
+    " Dockerfile + snippets
+      NeoBundleLazy 'ekalinin/Dockerfile.vim', {'autoload': {'filetypes': 'Dockerfile'}}
 
 
 

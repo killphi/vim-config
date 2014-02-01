@@ -9,9 +9,7 @@
 
 " Markdown
   augroup mkd
-    autocmd BufNewFile,BufRead *.mkd      set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
-    autocmd BufNewFile,BufRead *.md       set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
-    autocmd BufNewFile,BufRead *.markdown set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
+    autocmd BufNewFile,BufRead *.mkd,*.md,*.markdown set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
   augroup END
 
 " TMux config
@@ -23,8 +21,8 @@
 " CoffeeScript
   autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
-" Perl
-  autocmd BufNewFile,BufRead *.pl,*.pm,*.epl,*.pll set filetype=perl
+" Dockerfile
+  autocmd BufNewFile,BufRead Dockerfile* set filetype=Dockerfile
 
 
 " reenable syntax highlighting
