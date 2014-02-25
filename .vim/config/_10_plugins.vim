@@ -270,6 +270,10 @@
       let g:goyo_callbacks = [function('g:goyo_before'), function('g:goyo_after')]
       map <silent> <leader>G :Goyo<CR>
 
+  " Better whitespace highlighting for Vim
+    NeoBundle 'ntpeters/vim-better-whitespace'
+      autocmd BufWritePre <buffer> StripWhitespace
+
 
   """ Snippets
     "

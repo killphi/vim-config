@@ -37,7 +37,7 @@
   nnoremap vv `[V`]
 
 " clean up trailing whitespace
-  map <Leader>c :StripTrailingWhitespaces<cr>
+  map <Leader>c :StripWhitespace<cr>
 
 " compress excess whitespace on current line
   map <Leader>e :s/\v(\S+)\s+/\1 /<cr>:nohl<cr>
