@@ -127,6 +127,9 @@
   " A text object to turn foo_bar_baz into foo_baz *and* quuxSpamEggs into quuxEggs *and* shine your shoes
     NeoBundle 'Julian/vim-textobj-variable-segment', {'depends': 'kana/vim-textobj-user'}
 
+  " Toggles between relative and absolute line numbers automatically  http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+    NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
+
 
 """ IDE functionality
   "
