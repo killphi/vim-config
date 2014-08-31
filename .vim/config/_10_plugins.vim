@@ -255,19 +255,19 @@
 
   " distraction free mode
     NeoBundle 'junegunn/goyo.vim'
-      function! g:goyo_before()
+      function! s:goyo_before()
         silent !tmux set status off
         set wrap
         SignifyToggle
       endfunction
 
-      function! g:goyo_after()
+      function! s:goyo_after()
         silent !tmux set status on
         set nowrap
         SignifyToggle
       endfunction
 
-      let g:goyo_callbacks = [function('g:goyo_before'), function('g:goyo_after')]
+      let g:goyo_callbacks = [function('s:goyo_before'), function('s:goyo_after')]
       map <silent> <leader>G :Goyo<CR>
 
   " Better whitespace highlighting for Vim
