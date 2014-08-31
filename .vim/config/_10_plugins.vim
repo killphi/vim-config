@@ -271,8 +271,11 @@
       map <silent> <leader>G :Goyo<CR>
 
   " Better whitespace highlighting for Vim
-    NeoBundle 'ntpeters/vim-better-whitespace'
-      autocmd BufWritePre <buffer> StripWhitespace
+    NeoBundle 'ntpeters/vim-better-whitespace', { 'augroup': 'BetterWhitespace' }
+    augroup BetterWhitespace
+      autocmd BufWritePre <buffer> ConditionalStripWhitespace
+    augroup END
+
 
 
   """ Snippets
