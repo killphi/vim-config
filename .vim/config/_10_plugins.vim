@@ -34,19 +34,11 @@
 """ extend standard functionality
   "
 
-  " Build scripts
-    NeoBundle 'killphi/vim-build-scripts'
-
   " Defaults everyone can agree on
     NeoBundle 'tpope/vim-sensible'
 
   " provides some utility functions and commands for programming
-    NeoBundle 'L9', {
-          \   'depends': 'killphi/vim-build-scripts',
-          \   'build': {
-          \     'unix': '../vim-build-scripts/jax.sh'
-          \   }
-          \ }
+    NeoBundle 'L9'
 
   " better matchit
     NeoBundle 'tsaleh/vim-matchit'
@@ -87,12 +79,7 @@
     NeoBundle 'sjl/splice.vim'
 
   " Perl/Ruby style regexp notation
-    NeoBundle 'othree/eregex.vim', {
-          \   'depends': 'killphi/vim-build-scripts',
-          \   'build': {
-          \     'unix': '../vim-build-scripts/jax.sh'
-          \   }
-          \ }
+    NeoBundle 'othree/eregex.vim'
       let g:eregex_default_enable = 0
       nnoremap <leader>/ :call eregex#toggle()<CR>
 
@@ -243,12 +230,7 @@
     NeoBundle 'tpope/vim-eunuch'
 
   " :substitute preview
-    NeoBundle 'osyo-manga/vim-over', {
-          \   'depends': 'killphi/vim-build-scripts',
-          \   'build': {
-          \     'unix': '../vim-build-scripts/jax.sh'
-          \   }
-          \ }
+    NeoBundle 'osyo-manga/vim-over'
       nnoremap <silent> <Leader>:s :OverCommandLine<CR>s/
       nnoremap <silent> <Leader>:% :OverCommandLine<CR>%s/
       vnoremap <silent> <Leader>:s :OverCommandLine<CR>s/
