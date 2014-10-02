@@ -458,6 +458,12 @@
     " Dockerfile + snippets
       NeoBundleLazy 'ekalinin/Dockerfile.vim', {'autoload': {'filetypes': 'Dockerfile'}}
 
+  """ fish - Friendly Interactive SHell
+    "
+
+    " fish syntax files
+      NeoBundle 'dag/vim-fish'
+
 
 
 " " plugin name + desc
