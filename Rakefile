@@ -11,6 +11,7 @@ CLOBBER.add('.vim/bundle*')
 CLOBBER.add('.vim/UltiSnips*')
 CLOBBER.add('.vim/vim*')
 
+directory '.vim/easytags'
 directory '.vim/UltiSnips'
 directory '.vim/bundle'
 directory '.vim/vimswap'

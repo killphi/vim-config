@@ -133,7 +133,7 @@
       execute "set tags+=" . resolve(expand('~/.vim/vimtags'))
       let g:easytags_file = '~/.vim/vimtags'
       let g:easytags_dynamic_files = 2
-      let g:easytags_by_filetype = 1
+      let g:easytags_by_filetype = '~/.vim/easytags'
       let g:easytags_resolvelinks = 1
       let g:easytags_auto_highlight = 0
       autocmd BufEnter * call _30_functions#buffer_tags()
