@@ -11,7 +11,6 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 runtime! config/*.vim
-runtime! custom/*.vim
 
 " Installation check.
 NeoBundleCheck

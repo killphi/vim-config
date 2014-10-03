@@ -136,7 +136,7 @@
       let g:easytags_by_filetype = '~/.vim/easytags'
       let g:easytags_resolvelinks = 1
       let g:easytags_auto_highlight = 0
-      autocmd BufEnter * call _30_functions#buffer_tags()
+      autocmd BufEnter * call KILLPHI__easytags_fix_buffer_tags()
 
   " Tagbar for navigation by tags using CTags
     NeoBundle 'majutsushi/tagbar'
