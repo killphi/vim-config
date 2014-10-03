@@ -1,49 +1,49 @@
-# define functions
+# define helpers
+class Helpers
+  def self.message( msg )
+    length = 80
+    b = "\e[1m"
+    t = "\e[0m"
 
-def message( msg )
-  length = 80
-  b = "\e[1m"
-  t = "\e[0m"
+    puts ''
+    puts ''.center(length, '#')
+    puts "##{b}#{msg.center(length - 2)}#{t}#"
+    puts ''.center(length, '#')
+    puts ''
+  end
 
-  puts ''
-  puts ''.center(length, '#')
-  puts "##{b}#{msg.center(length - 2)}#{t}#"
-  puts ''.center(length, '#')
-  puts ''
+  def self.mkdir( dir )
+    FileUtils.mkdir_p File.expand_path(dir)
+  end
+
+  def self.touch( file )
+    path = File.expand_path(file)
+    FileUtils.mkdir_p File.dirname(path)
+    FileUtils.touch path
+  end
 end
 
-def mkdir( dir )
-  FileUtils.mkdir_p File.expand_path(dir)
-end
 
-def touch( file )
-  path = File.expand_path(file)
-  FileUtils.mkdir_p File.dirname(path)
-  FileUtils.touch path
-end
+# create file structure
 
+Helpers.mkdir '~/.vim/easytags'
+Helpers.mkdir '~/.vim/bundle'
+Helpers.mkdir '~/.vim/vimswap'
+Helpers.mkdir '~/.vim/vimundo'
 
-# create directories
-
-mkdir '.vim/easytags'
-mkdir '.vim/UltiSnips'
-mkdir '.vim/bundle'
-mkdir '.vim/vimswap'
-mkdir '.vim/vimundo'
-
-touch '.vim/vimtags'
+Helpers.touch '~/.vim/vimtags'
 
 
-# install bundles
+# install NeoBundle + bundles
 
 bundle_path = File.expand_path('~/.vim/bundle/neobundle.vim')
 if File.directory?(bundle_path)
-  message('Shougo/neobundle.vim already exists, updating')
-  puts `cd ~/.vim/bundle/neobundle.vim/; git pull --ff-only`
+  Helpers.message('Shougo/neobundle.vim already exists, updating')
+  puts `cd ~/.vim/bundle/neobundle.vim/; git pull --ff --ff-only`
 else
-  message('cloning Shougo/neobundle.vim into ~/.vim/bundle/')
+  Helpers.message('cloning Shougo/neobundle.vim into ~/.vim/bundle/')
   puts `cd ~/.vim/bundle; git clone --recursive https://github.com/Shougo/neobundle.vim`
 end
 
-message('installing bundles')
+Helpers.message('installing bundles')
 puts `vim -u install.vimrc`

@@ -41,7 +41,7 @@
     NeoBundle 'L9'
 
   " better matchit
-    NeoBundle 'tsaleh/vim-matchit'
+    " NeoBundle 'tsaleh/vim-matchit'
 
   " extensible & universal comment plugin
     NeoBundle 'tomtom/tcomment_vim'
