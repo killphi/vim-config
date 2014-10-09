@@ -9,6 +9,7 @@
 
 " Markdown
   augroup mkd
+    autocmd!
     autocmd BufNewFile,BufRead *.mkd,*.md,*.markdown set ai formatoptions=tcroqn2 comments=n:> filetype=markdown
   augroup END
 

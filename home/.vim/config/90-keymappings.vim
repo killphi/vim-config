@@ -36,9 +36,6 @@
 " select the lines which were just pasted
   nnoremap vv `[V`]
 
-" clean up trailing whitespace
-  map <Leader>c :StripWhitespace<cr>
-
 " compress excess whitespace on current line
   map <Leader>e :s/\v(\S+)\s+/\1 /<cr>:nohl<cr>
 
@@ -55,7 +52,7 @@
   nnoremap <S-Right> <c-w>>
 
 " reindent the entire file
-  map <Leader>I gg=G``<cr>
+  map <Leader>I :%retab<cr>gg=G``<cr>
 
 " insert the path of currently edited file into a command
 " Command mode: Ctrl-P

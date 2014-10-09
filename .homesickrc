@@ -1,25 +1,27 @@
 # define helpers
 class Helpers
-  def self.message( msg )
-    length = 80
-    b = "\e[1m"
-    t = "\e[0m"
+  class << self
+    def message( msg )
+      length = 80
+      b = "\e[1m"
+      t = "\e[0m"
 
-    puts ''
-    puts ''.center(length, '#')
-    puts "##{b}#{msg.center(length - 2)}#{t}#"
-    puts ''.center(length, '#')
-    puts ''
-  end
+      puts ''
+      puts ''.center(length, '#')
+      puts "##{b}#{msg.center(length - 2)}#{t}#"
+      puts ''.center(length, '#')
+      puts ''
+    end
 
-  def self.mkdir( dir )
-    FileUtils.mkdir_p File.expand_path(dir)
-  end
+    def mkdir( dir )
+      FileUtils.mkdir_p File.expand_path(dir)
+    end
 
-  def self.touch( file )
-    path = File.expand_path(file)
-    FileUtils.mkdir_p File.dirname(path)
-    FileUtils.touch path
+    def touch( file )
+      path = File.expand_path(file)
+      FileUtils.mkdir_p File.dirname(path)
+      FileUtils.touch path
+    end
   end
 end
 
@@ -47,3 +49,5 @@ end
 
 Helpers.message('installing bundles')
 puts `vim -u install.vimrc`
+
+# vim:set ft=ruby:
