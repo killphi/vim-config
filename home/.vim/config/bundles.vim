@@ -45,6 +45,9 @@
   " tmux basics
     NeoBundle 'tpope/vim-tbone'
 
+  " commenting code
+    NeoBundle 'tComment'
+
   " Unite and create user interfaces
     NeoBundle 'Shougo/unite.vim'
 
@@ -139,7 +142,7 @@
   " Automated tag file generation and syntax highlighting of tags  {{{
     NeoBundle 'easytags.vim', {
           \   'depends': 'vim-misc',
-          \   'augroup': 'XoloxEasyTags'
+          \   'augroup': 'VimScriptsEasyTags'
           \ }
 
     let g:easytags_file = '~/.vim/vimtags'
@@ -148,13 +151,15 @@
     let g:easytags_resolvelinks = 1
     let g:easytags_auto_highlight = 0
 
+    execute "set tags+=" . resolve(expand('~/.vim/vimtags'))
+
     function! s:easytags_fix_buffer_tags()
       if exists('b:git_dir')
         execute 'setl tags^="' . resolve(expand(b:git_dir).'/../tags') . '"'
       endif
     endfunction
 
-    augroup XoloxEasyTags
+    augroup VimScriptsEasyTags
       autocmd!
       autocmd BufEnter * call s:easytags_fix_buffer_tags()
     augroup END
@@ -376,10 +381,10 @@
     " JS Beautify  {{{
       NeoBundleLazy 'maksimr/vim-jsbeautify', {
             \   'autoload': {'filetypes': [ 'javascript', 'html', 'css' ]},
-            \   'augroup': 'JSBeautify'
+            \   'augroup': 'MaksimRJSBeautify'
             \ }
 
-      augroup JSBeautify
+      augroup MaksimRJSBeautify
         autocmd!
         autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
         " for html
@@ -396,7 +401,11 @@
     "{{{
 
     " Mustache & Handlebars
-      NeoBundleLazy 'juvenn/mustache.vim', {'autoload': {'filetypes': 'mustache'}}
+      NeoBundleLazy 'mustache/vim-mustache-handlebars', {
+            \   'autoload': {
+            \     'filetypes': [ 'html.mustache', 'html.handlebars' ]
+            \   }
+            \ }
 
     "}}}
 
@@ -466,10 +475,10 @@
     " Markdown preview to quickly preview markdown files  {{{
       NeoBundleLazy 'maba/vim-markdown-preview', {
             \   'autoload': {'filetypes': 'markdown'},
-            \   'augroup': 'MarkdownVim'
+            \   'augroup': 'MabaMarkdownVim'
             \ }
 
-      augroup MarkdownVim
+      augroup MabaMarkdownVim
         autocmd!
         autocmd FileType markdown map <buffer> <Leader>mp :Mm<CR>
       augroup END

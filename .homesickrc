@@ -41,10 +41,13 @@ Helpers.touch '~/.vim/vimtags'
 bundle_path = File.expand_path('~/.vim/bundle/neobundle.vim')
 if File.directory?(bundle_path)
   Helpers.message('Shougo/neobundle.vim already exists, updating')
-  puts `cd ~/.vim/bundle/neobundle.vim/; git pull --ff --ff-only`
+  puts `cd ~/.vim/bundle/neobundle.vim/;
+    git pull --ff --ff-only;
+    git submodule update --init --recursive`
 else
   Helpers.message('cloning Shougo/neobundle.vim into ~/.vim/bundle/')
-  puts `cd ~/.vim/bundle; git clone --recursive https://github.com/Shougo/neobundle.vim`
+  puts `cd ~/.vim/bundle;
+    git clone --recursive https://github.com/Shougo/neobundle.vim`
 end
 
 Helpers.message('installing bundles')

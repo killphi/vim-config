@@ -19,4 +19,4 @@ filetype plugin indent on
 NeoBundleCheck
 
 " runtime config
-runtime! config/?0-*.vim
+runtime! config/*config.vim

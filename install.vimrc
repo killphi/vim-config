@@ -1,9 +1,7 @@
-if has('vim_starting')
-  filetype off
-  set nocompatible
+filetype off
+set nocompatible
 
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
