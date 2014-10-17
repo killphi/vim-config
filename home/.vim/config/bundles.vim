@@ -39,44 +39,197 @@
 """ extend functionality
   "{{{
 
-  " Defaults everyone can agree on (according to TPope)
-    NeoBundle 'tpope/vim-sensible'
+  """ Shougo niceness
+    "{{{
 
-  " tmux basics
-    NeoBundle 'tpope/vim-tbone'
+    " Unite and create user interfaces
+      NeoBundle 'Shougo/unite.vim'
 
-  " commenting code
-    NeoBundle 'tComment'
+    " Interactive command execution
+      NeoBundle 'Shougo/vimproc', {
+            \   'build' : {
+            \     'windows' : 'make -f make_mingw32.mak',
+            \     'cygwin' : 'make -f make_cygwin.mak',
+            \     'mac' : 'make -f make_mac.mak',
+            \     'unix' : 'make -f make_unix.mak',
+            \   }
+            \ }
 
-  " Unite and create user interfaces
-    NeoBundle 'Shougo/unite.vim'
+    " file explorer  {{{
+      NeoBundle 'Shougo/vimfiler.vim'
 
-  " enable repeating supported plugin maps with '.'
-    NeoBundle 'tpope/vim-repeat'
+      let g:vimfiler_as_default_explorer = 1
+      "}}}
 
-  " detect indendation of files  {{{
-    NeoBundle 'ciaranm/detectindent', {
-          \   'augroup': 'CiaranMDetectIdent'
-          \ }
-
-    let g:detectindent_preferred_expandtab = 1
-    let g:detectindent_preferred_indent = 2
-
-    augroup CiaranMDetectIndent
-      autocmd!
-      autocmd VimEnter * :DetectIndent
-    augroup END
     "}}}
 
-  " Interactive command execution
-    NeoBundle 'Shougo/vimproc', {
-          \   'build' : {
-          \     'windows' : 'make -f make_mingw32.mak',
-          \     'cygwin' : 'make -f make_cygwin.mak',
-          \     'mac' : 'make -f make_mac.mak',
-          \     'unix' : 'make -f make_unix.mak',
-          \   }
-          \ }
+  """ tpope Awesomeness
+    "{{{
+
+    " Defaults everyone can agree on (according to TPope)
+      NeoBundle 'tpope/vim-sensible'
+
+    " tmux basics
+      NeoBundle 'tpope/vim-tbone'
+
+    " enable repeating supported plugin maps with '.'
+      NeoBundle 'tpope/vim-repeat'
+
+    " wisely add 'end' in ruby, endfunction/endif/more in vim script
+      NeoBundle 'tpope/vim-endwise'
+
+    " Unimpaired for keymaps for quicky manipulating lines and files  {{{
+      NeoBundle 'tpope/vim-unimpaired'
+
+      " Bubble single lines
+      nmap <C-Up> [e
+      nmap <C-Down> ]e
+      " Bubble multiple lines
+      vmap <C-Up> [egv
+      vmap <C-Down> ]egv
+      "}}}
+
+    " quoting/parenthesizing made simple  {{{
+      NeoBundle 'tpope/vim-surround'
+
+      " # to surround with ruby string interpolation
+      let g:surround_35 = "#{\r}"
+      " " - to surround with no-output erb tag
+      " let g:surround_45 = '<% \r %>'
+      " " = to surround with output erb tag
+      " let g:surround_61 = '<%= \r %>'
+      "}}}
+
+    " helpers for UNIX
+      NeoBundle 'tpope/vim-eunuch'
+
+    " Git runtime files
+      NeoBundle 'tpope/vim-git'
+
+    " a Git wrapper so awesome, it should be illegal
+      NeoBundle 'tpope/vim-fugitive'
+
+    " commenting code
+      NeoBundle 'tpope/vim-commentary'
+
+    " zeroconf for file indents
+      NeoBundle 'tpope/vim-sleuth'
+
+    " easily search for, substitute, and abbreviate multiple variants of a word
+      NeoBundle 'tpope/vim-abolish'
+
+    " asynchronous build and test dispatcher
+      NeoBundle 'tpope/vim-dispatch'
+
+    "}}}
+
+  """ killphi stuff
+    "{{{
+
+    " highlight current block scope
+      NeoBundle 'killphi/vim-floodlight'
+
+    "}}}
+
+  """ vim-scripts
+    "{{{
+
+    " emmet.io - formerly known as ZenCode
+      NeoBundle 'Emmet.vim'
+
+    " create cscope database and connect to existing proper database automatically  {{{
+      NeoBundle 'cscope.vim'
+
+      set nocscopetag
+      "}}}
+
+    " Automated tag file generation and syntax highlighting of tags  {{{
+      NeoBundle 'easytags.vim', {
+            \   'depends': 'vim-misc',
+            \   'augroup': 'VimScriptsEasyTags'
+            \ }
+
+      let g:easytags_file = '~/.vim/vimtags'
+      let g:easytags_dynamic_files = 2
+      let g:easytags_by_filetype = '~/.vim/easytags'
+      let g:easytags_resolvelinks = 1
+      let g:easytags_auto_highlight = 0
+
+      execute "set tags+=" . resolve(expand('~/.vim/vimtags'))
+
+      function! s:easytags_fix_buffer_tags()
+        if exists('b:git_dir')
+          execute 'setl tags^="' . resolve(expand(b:git_dir).'/../tags') . '"'
+        endif
+      endfunction
+
+      augroup VimScriptsEasyTags
+        autocmd!
+        autocmd BufEnter * call s:easytags_fix_buffer_tags()
+      augroup END
+      "}}}
+
+    " Syntastic for catching syntax errors on save  {{{
+      NeoBundle 'Syntastic'
+
+      let g:syntastic_enable_signs=1
+      let g:syntastic_quiet_messages = {'level': 'warnings'}
+      " syntastic is too slow for haml and sass
+      let g:syntastic_mode_map = {
+            \   'mode': 'active',
+            \   'active_filetypes': [],
+            \   'passive_filetypes': [ 'haml','scss','sass' ]
+            \ }
+      " ruby checking includes rubocop
+      let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+      "}}}
+
+    " comment stuff out
+      NeoBundle 'tComment'
+
+    " cascading indent
+      NeoBundle 'cascading.vim'
+
+    " saves files into non-existing directories
+      NeoBundle 'auto_mkdir'
+
+    "}}}
+
+  """ user defined text objects (kana/vim-textobj-user)
+    "{{{
+
+    " Text objects for indented blocks of lines
+      NeoBundle 'kana/vim-textobj-indent', {'depends': 'kana/vim-textobj-user'}
+
+    " Text objects for comments
+      NeoBundle 'glts/vim-textobj-comment', {'depends': 'kana/vim-textobj-user'}
+
+    " A text object to turn foo_bar_baz into foo_baz *and* quuxSpamEggs into quuxEggs *and* shine your shoes
+      NeoBundle 'Julian/vim-textobj-variable-segment', {
+            \   'depends': 'kana/vim-textobj-user'
+            \ }
+
+    " custom text object for selecting ruby blocks
+      NeoBundleLazy 'nelstrom/vim-textobj-rubyblock', {
+            \   'depends': 'kana/vim-textobj-user',
+            \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
+            \ }
+
+    " TextObj SignifyHunk
+      NeoBundle 'killphi/vim-textobj-signify-hunk', {
+            \   'depends': [ 'kana/vim-textobj-user', 'mhinz/vim-signify' ]
+            \ }
+
+    "}}}
+
+  " Taste the rainbow!  {{{
+    NeoBundle 'kien/rainbow_parentheses.vim'
+
+    au VimEnter * RainbowParenthesesToggle
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
+    "}}}
 
   " undo tree visualization  {{{
     NeoBundle 'sjl/gundo.vim'
@@ -101,69 +254,8 @@
     let CoVim_default_port = "9999"
     "}}}
 
-  " emmet.io - formerly known as ZenCode
-    NeoBundle 'Emmet.vim'
-
-  """ user defined text objects (kana/vim-textobj-user)
-    "{{{
-
-    " Text objects for indented blocks of lines
-      NeoBundle 'kana/vim-textobj-indent', {'depends': 'kana/vim-textobj-user'}
-
-    " Text objects for comments
-      NeoBundle 'glts/vim-textobj-comment', {'depends': 'kana/vim-textobj-user'}
-
-    " A text object to turn foo_bar_baz into foo_baz *and* quuxSpamEggs into quuxEggs *and* shine your shoes
-      NeoBundle 'Julian/vim-textobj-variable-segment', {
-            \   'depends': 'kana/vim-textobj-user'
-            \ }
-
-    " TextObj SignifyHunk
-      NeoBundle 'killphi/vim-textobj-signify-hunk', {
-            \   'depends': [ 'kana/vim-textobj-user', 'mhinz/vim-signify' ]
-            \ }
-
-    " custom text object for selecting ruby blocks
-      NeoBundleLazy 'nelstrom/vim-textobj-rubyblock', {
-            \   'depends': 'kana/vim-textobj-user',
-            \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
-            \ }
-    "}}}
-
   " http://editorconfig.org/
     NeoBundle 'editorconfig/editorconfig-vim'
-
-  " create cscope database and connect to existing proper database automatically  {{{
-    NeoBundle 'cscope.vim'
-
-    set nocscopetag
-    "}}}
-
-  " Automated tag file generation and syntax highlighting of tags  {{{
-    NeoBundle 'easytags.vim', {
-          \   'depends': 'vim-misc',
-          \   'augroup': 'VimScriptsEasyTags'
-          \ }
-
-    let g:easytags_file = '~/.vim/vimtags'
-    let g:easytags_dynamic_files = 2
-    let g:easytags_by_filetype = '~/.vim/easytags'
-    let g:easytags_resolvelinks = 1
-    let g:easytags_auto_highlight = 0
-
-    execute "set tags+=" . resolve(expand('~/.vim/vimtags'))
-
-    function! s:easytags_fix_buffer_tags()
-      if exists('b:git_dir')
-        execute 'setl tags^="' . resolve(expand(b:git_dir).'/../tags') . '"'
-      endif
-    endfunction
-
-    augroup VimScriptsEasyTags
-      autocmd!
-      autocmd BufEnter * call s:easytags_fix_buffer_tags()
-    augroup END
-    "}}}
 
   " Tagbar for navigation by tags using CTags  {{{
     NeoBundle 'majutsushi/tagbar'
@@ -174,21 +266,6 @@
     let g:tagbar_autoshowtag = 1
 
     map <Leader>. :TagbarToggle<CR>
-    "}}}
-
-  " Syntastic for catching syntax errors on save  {{{
-    NeoBundle 'Syntastic'
-
-    let g:syntastic_enable_signs=1
-    let g:syntastic_quiet_messages = {'level': 'warnings'}
-    " syntastic is too slow for haml and sass
-    let g:syntastic_mode_map = {
-          \   'mode': 'active',
-          \   'active_filetypes': [],
-          \   'passive_filetypes': [ 'haml','scss','sass' ]
-          \ }
-    " ruby checking includes rubocop
-    let g:syntastic_ruby_checkers = ['mri', 'rubocop']
     "}}}
 
   " display indent levels visually in code  {{{
@@ -206,9 +283,6 @@
       autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=8
     augroup END
     "}}}
-
-  " wisely add 'end' in ruby, endfunction/endif/more in vim script
-    NeoBundle 'tpope/vim-endwise'
 
   " use VIm as a 3-way-merge tool
     NeoBundle 'sjl/splice.vim'
@@ -231,28 +305,6 @@
     let g:airline_enable_tagbar = 1
     "}}}
 
-  " Unimpaired for keymaps for quicky manipulating lines and files  {{{
-    NeoBundle 'tpope/vim-unimpaired'
-
-    " Bubble single lines
-    nmap <C-Up> [e
-    nmap <C-Down> ]e
-    " Bubble multiple lines
-    vmap <C-Up> [egv
-    vmap <C-Down> ]egv
-    "}}}
-
-  " quoting/parenthesizing made simple  {{{
-    NeoBundle 'tpope/vim-surround'
-
-    " # to surround with ruby string interpolation
-    let g:surround_35 = "#{\r}"
-    " " - to surround with no-output erb tag
-    " let g:surround_45 = '<% \r %>'
-    " " = to surround with output erb tag
-    " let g:surround_61 = '<%= \r %>'
-    "}}}
-
   " AG aka The Silver Searcher  {{{
     NeoBundle 'rking/ag.vim'
 
@@ -271,15 +323,8 @@
     map <Leader>a :Tabularize<space>
     "}}}
 
-  " auto close brackets 'n stuff  {{{
+  " auto close brackets 'n stuff
     NeoBundle 'MartinLafreniere/vim-PairTools'
-    NeoBundle 'killphi/vim-PairTools-filetypes', {
-          \   'depends': 'MartinLafreniere/vim-PairTools'
-          \ }
-    "}}}
-
-  " helpers for UNIX
-    NeoBundle 'tpope/vim-eunuch'
 
   " :substitute preview  {{{
     NeoBundle 'osyo-manga/vim-over'
@@ -308,6 +353,18 @@
     map <silent> <leader>G :Goyo<CR>
     "}}}
 
+  " Limelight - Goyo enhancement  {{{
+    NeoBundleLazy 'junegunn/limelight.vim', {
+          \   'autoload': {'commands': 'Goyo'},
+          \   'augroup': 'JuneGunnLimelight'
+          \ }
+
+    augroup JuneGunnLimelight
+      autocmd User GoyoEnter Limelight
+      autocmd User GoyoLeave Limelight!
+    augroup END
+    "}}}
+
   " Better whitespace highlighting for Vim  {{{
     NeoBundle 'ntpeters/vim-better-whitespace', {
           \   'augroup': 'NtPetersBetterWhitespace'
@@ -330,12 +387,6 @@
     augroup END
     "}}}
 
-    " Git runtime files
-      NeoBundle 'tpope/vim-git'
-
-    " a Git wrapper so awesome, it should be illegal
-      NeoBundle 'tpope/vim-fugitive'
-
     " Signify  {{{
       NeoBundle 'mhinz/vim-signify'
 
@@ -346,6 +397,11 @@
 
     " default snippets
       NeoBundle 'honza/vim-snippets'
+
+    " gitk for Vim
+      NeoBundle 'gregsexton/gitv', {
+            \   'depends': 'tpope/vim-fugitive'
+            \ }
 
   "}}}
 
@@ -437,7 +493,10 @@
 
     " Lightweight support for Ruby's Bundler'
       NeoBundleLazy 'tpope/vim-bundler', {
-            \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
+            \   'autoload': {
+            \     'filetypes': [ 'ruby', 'eruby' ],
+            \     'commands': 'Bundle'
+            \   }
             \ }
 
     " like rails.vim without the rails
@@ -462,6 +521,17 @@
         autocmd FileType ruby map <Leader>oi :Rintegration<Space>
       augroup END
       ""}}}
+
+    " Refactoring
+      NeoBundleLazy 'killphi/vim-ruby-refactoring', {
+            \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
+            \ }
+
+    " Testing
+      NeoBundleLazy 'jgdavey/vim-turbux', {
+            \   'depends': 'tpope/vim-dispatch',
+            \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
+            \ }
 
     "}}}
 
@@ -520,6 +590,16 @@
 
     "}}}
 
+  """ XML / XSLT
+    "{{{
+
+    " extend pairtools for xml/xslt
+      NeoBundleLazy 'killphi/vim-PairTools-xml-xslt-extension', {
+            \   'depends': 'MartinLafreniere/vim-PairTools',
+            \   'autoload': {'filetypes': [ 'xml', 'xslt' ]}
+            \ }
+
+    "}}}
   "}}}
 
 

@@ -106,10 +106,6 @@ nmap gW :only<cr>
 " go to the alternate file (previous buffer) with g-enter
 nmap g 
 
-" insert blank lines without going into insert mode
-nmap go m`o<esc>cc<esc>``
-nmap gO m`O<esc>cc<esc>``
-
 " mapping the jumping between splits. Hold control while using vim nav.
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
