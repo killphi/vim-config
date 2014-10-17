@@ -600,6 +600,16 @@
             \ }
 
     "}}}
+
+  """ Rust
+    "{{{
+
+    " Rust Syntax
+      NeoBundleLazy 'wting/rust.vim', {
+            \   'autoload': {'filetypes': 'rust'}
+            \ }
+
+    "}}}
   "}}}
 
 
