@@ -206,8 +206,8 @@
             \   'depends': 'kana/vim-textobj-user'
             \ }
 
-    " custom text object for selecting ruby blocks
-      NeoBundleLazy 'nelstrom/vim-textobj-rubyblock', {
+    " custom text object for selecting ruby stuff
+      NeoBundleLazy 'tek/vim-textobj-ruby', {
             \   'depends': 'kana/vim-textobj-user',
             \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
             \ }
@@ -241,8 +241,11 @@
     nnoremap <leader>/ :call eregex#toggle()<CR>
     "}}}
 
-  " Toggles between relative and absolute line numbers automatically  http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
-    NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
+  " Toggles between relative and absolute line numbers  {{{
+    NeoBundle 'jeetsukumaran/vim-numbertoggle'
+
+    let g:numbertoggle_start_in_relative_mode = 0
+    "}}}
 
   " Collaborative Editing for Vim  {{{
     NeoBundle 'FredKSchott/CoVim'
