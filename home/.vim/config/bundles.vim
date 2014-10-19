@@ -109,9 +109,6 @@
     " a Git wrapper so awesome, it should be illegal
       NeoBundle 'tpope/vim-fugitive'
 
-    " commenting code
-      NeoBundle 'tpope/vim-commentary'
-
     " zeroconf for file indents
       NeoBundle 'tpope/vim-sleuth'
 
