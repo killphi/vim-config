@@ -30,8 +30,11 @@
 """ Colors
   "{{{
 
-  " Solarized color scheme -- http://ethanschoonover.com/solarized
+  " Solarized color scheme -- http://ethanschoonover.com/solarized  {{{
     NeoBundle 'altercation/vim-colors-solarized'
+
+    let g:solarized_menu      =   0
+    "}}}
 
   "}}}
 
@@ -363,9 +366,11 @@
 
   " Limelight - Goyo enhancement  {{{
     NeoBundleLazy 'junegunn/limelight.vim', {
-          \   'autoload': {'commands': 'Goyo'},
+          \   'autoload': {'commands': [ 'Goyo', 'Limelight' ]},
           \   'augroup': 'JuneGunnLimelight'
           \ }
+
+    let g:limelight_conceal_ctermfg = 10
 
     augroup JuneGunnLimelight
       autocmd User GoyoEnter Limelight
