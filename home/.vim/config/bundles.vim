@@ -253,11 +253,7 @@
   " Collaborative Editing for Vim  {{{
     NeoBundle 'FredKSchott/CoVim', {
           \   'build': {
-          \     'unix': 'if [[ -z `which pip 2>/dev/null` ]]; then ' +
-          \               'echo you need to install python pip!; ' +
-          \             'else ' +
-          \               'pip install twisted argparse; ' +
-          \             'fi'
+          \     'unix': 'pip install twisted argparse'
           \   }
           \ }
 
@@ -370,7 +366,12 @@
           \   'augroup': 'JuneGunnLimelight'
           \ }
 
+    " like comments
     let g:limelight_conceal_ctermfg = 10
+    " invisible
+    " let g:limelight_conceal_ctermfg = 8
+    " almost invisible
+    " let g:limelight_conceal_ctermfg = 0
 
     augroup JuneGunnLimelight
       autocmd User GoyoEnter Limelight
