@@ -502,6 +502,11 @@
   """ Ruby
     "{{{
 
+    " up to date Rubyist syntax and stuff
+      NeoBundleLazy 'vim-ruby/vim-ruby', {
+            \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
+            \ }
+
     " Switch Ruby versions from inside Vim
       NeoBundleLazy 'tpope/vim-rvm', {
             \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
