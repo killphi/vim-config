@@ -136,6 +136,9 @@
   """ vim-scripts
     "{{{
 
+    " better % matching
+      NeoBundle 'matchit.zip'
+
     " emmet.io - formerly known as ZenCode
       NeoBundle 'Emmet.vim'
 
