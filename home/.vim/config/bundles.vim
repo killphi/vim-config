@@ -248,7 +248,15 @@
     "}}}
 
   " Collaborative Editing for Vim  {{{
-    NeoBundle 'FredKSchott/CoVim'
+    NeoBundle 'FredKSchott/CoVim', {
+          \   'build': {
+          \     'unix': 'if [[ -z `which pip 2>/dev/null` ]]; then ' +
+          \               'echo you need to install python pip!; ' +
+          \             'else ' +
+          \               'pip install twisted argparse; ' +
+          \             'fi'
+          \   }
+          \ }
 
     let CoVim_default_name = "killphi"
     let CoVim_default_port = "9999"
