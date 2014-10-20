@@ -33,7 +33,7 @@
   " Solarized color scheme -- http://ethanschoonover.com/solarized  {{{
     NeoBundle 'altercation/vim-colors-solarized'
 
-    let g:solarized_menu      =   0
+    let g:solarized_menu = 0
     "}}}
 
   "}}}
@@ -127,7 +127,9 @@
     "{{{
 
     " highlight current block scope
-      NeoBundle 'killphi/vim-floodlight'
+      NeoBundle 'killphi/vim-floodlight', {
+            \   'rev': 'dev'
+            \ }
 
     "}}}
 
