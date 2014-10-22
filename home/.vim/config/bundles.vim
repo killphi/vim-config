@@ -250,7 +250,9 @@
     "}}}
 
   " Toggles between relative and absolute line numbers  {{{
-    NeoBundle 'jeetsukumaran/vim-numbertoggle'
+    NeoBundle 'killphi/vim-numbertoggle', {
+          \   'rev': 'add_start_in_relative_mode_setting'
+          \ }
 
     let g:numbertoggle_start_in_relative_mode = 0
     "}}}
@@ -296,8 +298,13 @@
     augroup END
     "}}}
 
-  " use VIm as a 3-way-merge tool
+  " use VIm as a 3-way-merge tool  {{{
     NeoBundle 'sjl/splice.vim'
+
+    let g:splice_initial_diff_grid = 1
+    let g:splice_initial_scrollbind_grid = 1
+    let g:splice_prefix = "<Leader>s"
+    "}}}
 
   " lean & mean statusline for vim that's light as air  {{{
     NeoBundle 'bling/vim-airline'
