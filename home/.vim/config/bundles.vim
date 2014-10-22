@@ -136,6 +136,9 @@
   """ vim-scripts
     "{{{
 
+    " preserve EOL stuff thingy
+      NeoBundle 'PreserveNoEOL'
+
     " better % matching
       NeoBundle 'matchit.zip'
 
@@ -388,28 +391,6 @@
     augroup JuneGunnLimelight
       autocmd User GoyoEnter Limelight
       autocmd User GoyoLeave Limelight!
-    augroup END
-    "}}}
-
-  " Better whitespace highlighting for Vim  {{{
-    NeoBundle 'ntpeters/vim-better-whitespace', {
-          \   'augroup': 'NtPetersBetterWhitespace'
-          \ }
-
-    let g:strip_no_action_list = ['markdown']
-    map <Leader>c :StripWhitespace<cr>
-
-    function! s:ConditionalStripWhitespace()
-      let i = index(g:strip_no_action_list, &ft)
-
-      if i < 0
-        StripWhitespace
-      endif
-    endfunction
-
-    augroup NtPetersBetterWhitespace
-      autocmd!
-      autocmd BufWritePre <buffer> call s:ConditionalStripWhitespace()
     augroup END
     "}}}
 
