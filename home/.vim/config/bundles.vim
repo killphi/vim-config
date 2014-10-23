@@ -286,19 +286,10 @@
     "}}}
 
   " display indent levels visually in code  {{{
-    NeoBundle 'nathanaelkane/vim-indent-guides', {
-          \   'augroup': 'NathanaelKaneIndentGuides'
-          \ }
+    NeoBundle 'Yggdroot/indentLine'
 
-    let g:indent_guides_enable_on_vim_startup = 1
-    let g:indent_guides_start_level = 3
-    let g:indent_guides_auto_colors = 0
-
-    augroup NathanaelKaneIndentGuides
-      autocmd!
-      autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=0
-      autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=8
-    augroup END
+    let g:indentLine_color_term = 0
+    let g:indentLine_char = '¦'
     "}}}
 
   " use VIm as a 3-way-merge tool  {{{
