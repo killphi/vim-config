@@ -159,8 +159,7 @@
 
     " Automated tag file generation and syntax highlighting of tags  {{{
       NeoBundle 'easytags.vim', {
-            \   'depends': 'vim-misc',
-            \   'augroup': 'VimScriptsEasyTags'
+            \   'depends': 'vim-misc'
             \ }
 
       let g:easytags_file = '~/.vim/vimtags'
@@ -177,7 +176,7 @@
         endif
       endfunction
 
-      augroup VimScriptsEasyTags
+      augroup BundleVimScriptsEasyTags
         autocmd!
         autocmd BufEnter * call s:easytags_fix_buffer_tags()
       augroup END
@@ -374,8 +373,7 @@
 
   " Limelight - Goyo enhancement  {{{
     NeoBundleLazy 'junegunn/limelight.vim', {
-          \   'autoload': {'commands': [ 'Goyo', 'Limelight' ]},
-          \   'augroup': 'JuneGunnLimelight'
+          \   'autoload': {'commands': [ 'Goyo', 'Limelight' ]}
           \ }
 
     " like comments
@@ -385,7 +383,8 @@
     " almost invisible
     " let g:limelight_conceal_ctermfg = 0
 
-    augroup JuneGunnLimelight
+    augroup BundleJuneGunnLimelight
+      autocmd!
       autocmd User GoyoEnter Limelight
       autocmd User GoyoLeave Limelight!
     augroup END
@@ -440,11 +439,10 @@
 
     " JS Beautify  {{{
       NeoBundleLazy 'maksimr/vim-jsbeautify', {
-            \   'autoload': {'filetypes': [ 'javascript', 'html', 'css' ]},
-            \   'augroup': 'MaksimRJSBeautify'
+            \   'autoload': {'filetypes': [ 'javascript', 'html', 'css' ]}
             \ }
 
-      augroup MaksimRJSBeautify
+      augroup BundleMaksimRJSBeautify
         autocmd!
         autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
         " for html
@@ -515,11 +513,10 @@
 
     " rails.vim  {{{
       NeoBundleLazy 'tpope/vim-rails', {
-            \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]},
-            \   'augroup': 'TPopeVimRails'
+            \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
             \ }
 
-      augroup TPopeVimRails
+      augroup BundleTPopeVimRails
         autocmd!
         autocmd FileType ruby map <Leader>oc :Rcontroller<Space>
         autocmd FileType ruby map <Leader>ov :Rview<Space>
@@ -553,11 +550,10 @@
 
     " Markdown preview to quickly preview markdown files  {{{
       NeoBundleLazy 'maba/vim-markdown-preview', {
-            \   'autoload': {'filetypes': 'markdown'},
-            \   'augroup': 'MabaMarkdownVim'
+            \   'autoload': {'filetypes': 'markdown'}
             \ }
 
-      augroup MabaMarkdownVim
+      augroup BundleMabaMarkdownVim
         autocmd!
         autocmd FileType markdown map <buffer> <Leader>mp :Mm<CR>
       augroup END
