@@ -68,6 +68,10 @@ set foldmethod=indent
 " helper for width between 80 and 120
 set colorcolumn=80,120,121
 
+" set better width and height for viewports
+set winheight=25
+set winwidth=80
+
 " Filetype options  {{{
 
 " know .bash_aliases and .bash_functions
