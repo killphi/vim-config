@@ -295,6 +295,10 @@
 
     let g:indentLine_color_term = 0
     let g:indentLine_char = '¦'
+    let g:indentLine_indentLevel = 20
+    let g:indentLine_showFirstIndentLevel = 1
+    let g:indentLine_enabled = 0
+    let g:indentLine_loaded = 0
     "}}}
 
   " use VIm as a 3-way-merge tool  {{{
@@ -393,7 +397,7 @@
     " Signify  {{{
       NeoBundle 'mhinz/vim-signify'
 
-      let g:signify_sign_overwrite = 1
+      let g:signify_disable_by_default = 1
       let g:signify_vcs_list = [ 'git' ]
       let g:signify_diffoptions = { 'git': '-b' }
       "}}}
@@ -532,6 +536,26 @@
       NeoBundleLazy 'killphi/vim-ruby-refactoring', {
             \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
             \ }
+
+    " Coverage: cadre.vim - use with gem 'cadre'  {{{
+      NeoBundleLazy 'killphi/vim-cadre', {
+            \   'autoload': {'filetypes': [ 'ruby' ]},
+            \   'augroup': 'Cadre'
+            \ }
+
+      let g:cadre_active_auto = 0
+
+      let g:cadre_hit_sign="✔"
+      let g:cadre_miss_sign="✘"
+      let g:cadre_ignored_sign="◌"
+
+      " Solarized dark
+      let g:cadre_hit_color="ctermfg=2"
+      let g:cadre_miss_color="ctermfg=9"
+      let g:cadre_ignored_color="ctermfg=7"
+
+      let g:cadre_miss_line_color="ctermbg=0"
+      "}}}
 
     " Testing
       NeoBundleLazy 'jgdavey/vim-turbux', {
