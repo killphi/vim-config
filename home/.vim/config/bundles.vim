@@ -59,7 +59,9 @@
             \ }
 
     " file explorer  {{{
-      NeoBundle 'Shougo/vimfiler.vim'
+      NeoBundle 'Shougo/vimfiler.vim', {
+            \   'augroup': 'vimfiler'
+            \ }
 
       let g:vimfiler_as_default_explorer = 1
 
@@ -79,7 +81,9 @@
       NeoBundle 'tpope/vim-sensible'
 
     " tmux basics
-      NeoBundle 'tpope/vim-tbone'
+      NeoBundle 'tpope/vim-tbone', {
+            \   'augroup': 'tbone_reign_supreme_over_tmux_command'
+            \ }
 
     " enable repeating supported plugin maps with '.'
       NeoBundle 'tpope/vim-repeat'
@@ -116,7 +120,9 @@
       NeoBundle 'tpope/vim-git'
 
     " a Git wrapper so awesome, it should be illegal
-      NeoBundle 'tpope/vim-fugitive'
+      NeoBundle 'tpope/vim-fugitive', {
+            \   'augroup': 'fugitive'
+            \ }
 
     " zeroconf for file indents
       NeoBundle 'tpope/vim-sleuth'
@@ -142,9 +148,6 @@
   """ vim-scripts
     "{{{
 
-    " preserve EOL stuff thingy
-      NeoBundle 'PreserveNoEOL'
-
     " better % matching
       NeoBundle 'matchit.zip'
 
@@ -159,6 +162,7 @@
 
     " Automated tag file generation and syntax highlighting of tags  {{{
       NeoBundle 'easytags.vim', {
+            \   'augroup': 'PluginEasyTags',
             \   'depends': 'vim-misc'
             \ }
 
@@ -185,14 +189,16 @@
     " Syntastic for catching syntax errors on save  {{{
       NeoBundle 'Syntastic'
 
-      let g:syntastic_enable_signs=1
-      let g:syntastic_quiet_messages = {'level': 'warnings'}
+      let g:syntastic_enable_signs = 1
+      let g:syntastic_check_on_open = 1
+
       " syntastic is too slow for haml and sass
       let g:syntastic_mode_map = {
             \   'mode': 'active',
-            \   'active_filetypes': [],
+            \   'active_filetypes': ['ruby', 'javascript'],
             \   'passive_filetypes': [ 'haml','scss','sass' ]
             \ }
+
       " ruby checking includes rubocop
       let g:syntastic_ruby_checkers = ['mri', 'rubocop']
       "}}}
@@ -226,11 +232,6 @@
       NeoBundleLazy 'tek/vim-textobj-ruby', {
             \   'depends': 'kana/vim-textobj-user',
             \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
-            \ }
-
-    " TextObj SignifyHunk
-      NeoBundle 'killphi/vim-textobj-signify-hunk', {
-            \   'depends': [ 'kana/vim-textobj-user', 'mhinz/vim-signify' ]
             \ }
 
     "}}}
@@ -268,7 +269,7 @@
   " Collaborative Editing for Vim  {{{
     NeoBundle 'FredKSchott/CoVim', {
           \   'build': {
-          \     'unix': 'pip install twisted argparse'
+          \     'unix': 'pip install twisted argparse --exists-action i --user'
           \   }
           \ }
 
@@ -277,10 +278,14 @@
     "}}}
 
   " http://editorconfig.org/
-    NeoBundle 'editorconfig/editorconfig-vim'
+    NeoBundle 'editorconfig/editorconfig-vim', {
+          \   'depends': 'PreserveNoEOL'
+          \ }
 
   " Tagbar for navigation by tags using CTags  {{{
-    NeoBundle 'majutsushi/tagbar'
+    NeoBundle 'majutsushi/tagbar', {
+          \   'augroup': 'TagbarAutoCmds'
+          \ }
 
     let g:tagbar_autofocus = 1
     let g:tagbar_autoclose = 1
@@ -310,7 +315,9 @@
     "}}}
 
   " lean & mean statusline for vim that's light as air  {{{
-    NeoBundle 'bling/vim-airline'
+    NeoBundle 'bling/vim-airline', {
+          \   'augroup': 'airline'
+          \ }
 
     let g:airline_theme = 'solarized'
     let g:airline_powerline_fonts = 1
@@ -395,7 +402,9 @@
     "}}}
 
     " Signify  {{{
-      NeoBundle 'mhinz/vim-signify'
+      NeoBundle 'mhinz/vim-signify', {
+            \   'augroup': 'signify'
+            \ }
 
       let g:signify_disable_by_default = 1
       let g:signify_vcs_list = [ 'git' ]
@@ -492,11 +501,6 @@
   """ Ruby
     "{{{
 
-    " up to date Rubyist syntax and stuff
-      NeoBundleLazy 'vim-ruby/vim-ruby', {
-            \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
-            \ }
-
     " Switch Ruby versions from inside Vim
       NeoBundleLazy 'tpope/vim-rvm', {
             \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
@@ -512,12 +516,14 @@
 
     " like rails.vim without the rails
       NeoBundleLazy 'tpope/vim-rake', {
-            \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
+            \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]},
+            \   'augroup': 'rake'
             \ }
 
     " rails.vim  {{{
       NeoBundleLazy 'tpope/vim-rails', {
-            \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
+            \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]},
+            \   'augroup': 'railsPluginDetect'
             \ }
 
       augroup BundleTPopeVimRails
@@ -554,6 +560,7 @@
       let g:cadre_miss_color="ctermfg=9"
       let g:cadre_ignored_color="ctermfg=7"
 
+      " highlight miss lines
       let g:cadre_miss_line_color="ctermbg=0"
       "}}}
 
