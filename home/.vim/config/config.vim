@@ -6,11 +6,6 @@ color solarized
 " don't wrap long lines
 set nowrap
 
-" use 2 spaces for tabs
-if !&et
-  set expandtab softtabstop=2 shiftwidth=2
-endif
-
 " enable line numbers, and don't make them any wider than necessary
 set number numberwidth=2
 
@@ -77,9 +72,6 @@ set winwidth=80
 " know .bash_aliases and .bash_functions
 autocmd BufRead,BufNewFile .bash_{aliases,functions} set filetype=sh
 
-" reenable syntax highlighting
-autocmd FileType * syntax enable
-
 " set foldmethod to syntax, if available
 autocmd FileType * if strlen(&syntax) | set foldmethod=syntax | endif
 
@@ -118,6 +110,9 @@ imap <C-l> <Space>=><Space>
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
+
+" use Q as gq sub
+nnoremap Q gq
 
 " select the lines which were just pasted
 nnoremap vv `[V`]
