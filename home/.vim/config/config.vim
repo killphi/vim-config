@@ -112,7 +112,7 @@ imap <C-l> <Space>=><Space>
 nnoremap Y y$
 
 " use Q as gq sub
-nnoremap Q gq
+noremap Q gq
 
 " select the lines which were just pasted
 nnoremap vv `[V`]
