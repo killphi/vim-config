@@ -138,10 +138,10 @@
   """ killphi stuff
     "{{{
 
-    " highlight current block scope
-      NeoBundle 'killphi/vim-floodlight', {
-            \   'rev': 'dev'
-            \ }
+    " " highlight current block scope
+    "   NeoBundle 'killphi/vim-floodlight', {
+    "         \   'rev': 'dev'
+    "         \ }
 
     "}}}
 
@@ -360,13 +360,11 @@
     function! s:goyo_before()
       silent !tmux set status off
       set wrap
-      SignifyToggle
     endfunction
 
     function! s:goyo_after()
       silent !tmux set status on
       set nowrap
-      SignifyToggle
     endfunction
 
     let g:goyo_callbacks = [function('s:goyo_before'), function('s:goyo_after')]
@@ -536,25 +534,25 @@
             \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
             \ }
 
-    " Coverage: cadre.vim - use with gem 'cadre'  {{{
-      NeoBundleLazy 'killphi/vim-cadre', {
+    " Coverage: vim-legend - use with gem 'cadre'  {{{
+      NeoBundleLazy 'killphi/vim-legend', {
             \   'autoload': {'filetypes': [ 'ruby' ]},
-            \   'augroup': 'Cadre'
+            \   'augroup': 'Legend'
             \ }
 
-      let g:cadre_active_auto = 0
+      let g:legend_active_auto = 0
 
-      let g:cadre_hit_sign="✔"
-      let g:cadre_miss_sign="✘"
-      let g:cadre_ignored_sign="◌"
+      let g:legend_hit_sign="✔"
+      let g:legend_miss_sign="✘"
+      let g:legend_ignored_sign="◌"
 
       " Solarized dark
-      let g:cadre_hit_color="ctermfg=2"
-      let g:cadre_miss_color="ctermfg=9"
-      let g:cadre_ignored_color="ctermfg=7"
+      let g:legend_hit_color="ctermfg=2"
+      let g:legend_miss_color="ctermfg=9"
+      let g:legend_ignored_color="ctermfg=7"
 
       " highlight miss lines
-      let g:cadre_miss_line_color="ctermbg=0"
+      let g:legend_miss_line_color="ctermbg=0"
       "}}}
 
     " Testing
