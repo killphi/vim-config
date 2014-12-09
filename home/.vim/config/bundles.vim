@@ -400,6 +400,8 @@
       let g:signify_diffoptions = { 'git': '-b' }
       let g:signify_mapping_inner_motion = 'ih'
       let g:signify_mapping_outer_motion = 'ah'
+
+      map <silent> <leader>st :SignifyToggle<CR>
       "}}}
 
     " default snippets
