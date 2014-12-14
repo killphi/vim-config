@@ -2,6 +2,11 @@ if has('vim_starting')
   filetype off
   set nocompatible
 
+  " Vim does not play well with fish
+  if &shell =~# 'fish$'
+    set shell=/bin/bash
+  endif
+
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
