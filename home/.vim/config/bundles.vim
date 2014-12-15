@@ -1,32 +1,3 @@
-""" EXAMPLES  {{{
-"
-"" Original repos on github
-" NeoBundle 'tpope/vim-fugitive'
-" NeoBundle 'Lokaltog/vim-easymotion'
-" NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-"
-"" vim-scripts repos
-" NeoBundle 'L9'
-" NeoBundle 'FuzzyFinder'
-" NeoBundle 'rails.vim'
-"
-"" Non github repos
-" NeoBundle 'git://git.wincent.com/command-t.git'
-"
-"" gist repos
-" NeoBundle 'gist:Shougo/656148', {
-"       \   'name': 'everything.vim',
-"       \   'script_type': 'plugin'
-"       \ }
-"
-"" Non git repos
-" NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
-" NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
-"
-"}}}
-
-
-
 """ Colors
   "{{{
 
@@ -45,10 +16,10 @@
   """ Shougo niceness
     "{{{
 
-    " Unite and create user interfaces
+    " unite and create user interfaces
       NeoBundle 'Shougo/unite.vim'
 
-    " Interactive command execution
+    " interactive command execution
       NeoBundle 'Shougo/vimproc', {
             \   'build' : {
             \     'windows' : 'make -f make_mingw32.mak',
@@ -77,7 +48,7 @@
   """ tpope Awesomeness
     "{{{
 
-    " Defaults everyone can agree on (according to TPope)
+    " defaults everyone can agree on (according to TPope)
       NeoBundle 'tpope/vim-sensible'
 
     " tmux basics
@@ -88,35 +59,23 @@
     " enable repeating supported plugin maps with '.'
       NeoBundle 'tpope/vim-repeat'
 
-    " wisely add 'end' in ruby, endfunction/endif/more in vim script
+    " wisely close statements in supported languages
       NeoBundle 'tpope/vim-endwise'
 
-    " Unimpaired for keymaps for quicky manipulating lines and files  {{{
+    " keymaps for quicky manipulating lines and files  {{{
       NeoBundle 'tpope/vim-unimpaired'
-
-      " Bubble single lines
-      nmap <C-Up> [e
-      nmap <C-Down> ]e
-      " Bubble multiple lines
-      vmap <C-Up> [egv
-      vmap <C-Down> ]egv
-      "}}}
 
     " quoting/parenthesizing made simple  {{{
       NeoBundle 'tpope/vim-surround'
 
       " # to surround with ruby string interpolation
       let g:surround_35 = "#{\r}"
-      " " - to surround with no-output erb tag
-      " let g:surround_45 = '<% \r %>'
-      " " = to surround with output erb tag
-      " let g:surround_61 = '<%= \r %>'
       "}}}
 
     " helpers for UNIX
       NeoBundle 'tpope/vim-eunuch'
 
-    " Git runtime files
+    " git runtime files
       NeoBundle 'tpope/vim-git'
 
     " a Git wrapper so awesome, it should be illegal
@@ -127,11 +86,8 @@
     " zeroconf for file indents
       NeoBundle 'tpope/vim-sleuth'
 
-    " easily search for, substitute, and abbreviate multiple variants of a word
-      NeoBundle 'tpope/vim-abolish'
-
-    " asynchronous build and test dispatcher
-      NeoBundle 'tpope/vim-dispatch'
+    " " easily search for, substitute, and abbreviate multiple variants of a word
+    "   NeoBundle 'tpope/vim-abolish'
 
     "}}}
 
@@ -142,6 +98,27 @@
     "   NeoBundle 'killphi/vim-floodlight', {
     "         \   'rev': 'dev'
     "         \ }
+
+    " coverage: vim-legend - use with gem 'cadre'  {{{
+      NeoBundleLazy 'killphi/vim-legend', {
+            \   'autoload': {'filetypes': [ 'ruby', 'rust' ]},
+            \   'augroup': 'Legend'
+            \ }
+
+      let g:legend_active_auto = 0
+
+      let g:legend_hit_sign="✔"
+      let g:legend_miss_sign="✘"
+      let g:legend_ignored_sign="◌"
+
+      " Solarized dark
+      let g:legend_hit_color="ctermfg=2"
+      let g:legend_miss_color="ctermfg=9"
+      let g:legend_ignored_color="ctermfg=7"
+
+      " highlight miss lines
+      let g:legend_miss_line_color="ctermbg=0"
+      "}}}
 
     "}}}
 
@@ -160,7 +137,7 @@
       set nocscopetag
       "}}}
 
-    " Automated tag file generation and syntax highlighting of tags  {{{
+    " automated tag file generation and syntax highlighting of tags  {{{
       NeoBundle 'easytags.vim', {
             \   'augroup': 'PluginEasyTags',
             \   'depends': 'vim-misc'
@@ -186,7 +163,7 @@
       augroup END
       "}}}
 
-    " Syntastic for catching syntax errors on save  {{{
+    " catching syntax errors on save  {{{
       NeoBundle 'Syntastic'
 
       let g:syntastic_enable_signs = 1
@@ -217,13 +194,13 @@
   """ user defined text objects (kana/vim-textobj-user)
     "{{{
 
-    " Text objects for indented blocks of lines
+    " text objects for indented blocks of lines
       NeoBundle 'kana/vim-textobj-indent', {'depends': 'kana/vim-textobj-user'}
 
-    " Text objects for comments
+    " text objects for comments
       NeoBundle 'glts/vim-textobj-comment', {'depends': 'kana/vim-textobj-user'}
 
-    " A text object to turn foo_bar_baz into foo_baz *and* quuxSpamEggs into quuxEggs *and* shine your shoes
+    " text object to turn foo_bar_baz into foo_baz *and* quuxSpamEggs into quuxEggs *and* shine your shoes
       NeoBundle 'Julian/vim-textobj-variable-segment', {
             \   'depends': 'kana/vim-textobj-user'
             \ }
@@ -249,7 +226,7 @@
     nnoremap <leader>/ :call eregex#toggle()<CR>
     "}}}
 
-  " Toggles between relative and absolute line numbers  {{{
+  " toggles between relative and absolute line numbers  {{{
     NeoBundle 'killphi/vim-numbertoggle', {
           \   'rev': 'add_start_in_relative_mode_setting'
           \ }
@@ -257,7 +234,7 @@
     let g:numbertoggle_start_in_relative_mode = 0
     "}}}
 
-  " Collaborative Editing for Vim  {{{
+  " collaborative eDiting for Vim  {{{
     NeoBundle 'FredKSchott/CoVim', {
           \   'build': {
           \     'unix': 'pip install twisted argparse --exists-action i --user'
@@ -273,7 +250,7 @@
           \   'depends': 'PreserveNoEOL'
           \ }
 
-  " Tagbar for navigation by tags using CTags  {{{
+  " tagbar for navigation by tags using CTags  {{{
     NeoBundle 'majutsushi/tagbar', {
           \   'augroup': 'TagbarAutoCmds'
           \ }
@@ -325,7 +302,7 @@
     let g:airline_enable_tagbar = 1
     "}}}
 
-  " AG aka The Silver Searcher  {{{
+  " ag aka The Silver Searcher  {{{
     NeoBundle 'rking/ag.vim'
 
     nmap g/ :Ag!<space>
@@ -337,7 +314,7 @@
     nmap gl :cwindow<CR>
     "}}}
 
-  " Tabular for aligning text  {{{
+  " aligning text  {{{
     NeoBundle 'godlygeek/tabular'
 
     map <Leader>a :Tabularize<space>
@@ -354,7 +331,7 @@
     vnoremap <silent> <Leader>:s :OverCommandLine<CR>s/
     "}}}
 
-  " Goyo - distraction free mode  {{{
+  " distraction free mode  {{{
     NeoBundle 'junegunn/goyo.vim'
 
     function! s:goyo_before()
@@ -371,7 +348,7 @@
     map <silent> <leader>G :Goyo<CR>
     "}}}
 
-  " Limelight - Goyo enhancement  {{{
+  " Goyo enhancement  {{{
     NeoBundleLazy 'junegunn/limelight.vim', {
           \   'autoload': {'commands': [ 'Goyo', 'Limelight' ]}
           \ }
@@ -390,7 +367,7 @@
     augroup END
     "}}}
 
-    " Signify  {{{
+    " git chunk signs  {{{
       NeoBundle 'mhinz/vim-signify', {
             \   'augroup': 'signify'
             \ }
@@ -415,17 +392,25 @@
   "}}}
 
 
-""" Language files (lazy loaded)
+""" language files (lazy loaded)
   "{{{
 
   """ HTML
     "{{{
 
     " HTML 5 syntax & omnicomplete
-      NeoBundleLazy 'othree/html5.vim', {'autoload': {'filetypes': 'html'}}
+      NeoBundleLazy 'othree/html5.vim', {
+            \   'autoload': {
+            \     'filetypes': [ 'html', 'html.mustache', 'html.handlebars' ]
+            \   }
+            \ }
 
     " fix HTML <a> underlines of leading/trailing whitespace
-      NeoBundleLazy 'html_annoyance', {'autoload': {'filetypes': 'html'}}
+      NeoBundleLazy 'html_annoyance', {
+            \   'autoload': {
+            \     'filetypes': [ 'html', 'html.mustache', 'html.handlebars' ]
+            \   }
+            \ }
 
     "}}}
 
@@ -438,10 +423,10 @@
             \   'autoload': {'filetypes': 'javascript'}
             \ }
 
-    " Coffee script
-      NeoBundleLazy 'kchmck/vim-coffee-script', {
-            \   'autoload': {'filetypes': 'coffee'}
-            \ }
+    " " Coffee script
+    "   NeoBundleLazy 'kchmck/vim-coffee-script', {
+    "         \   'autoload': {'filetypes': 'coffee'}
+    "         \ }
 
     " JS Beautify  {{{
       NeoBundleLazy 'maksimr/vim-jsbeautify', {
@@ -471,6 +456,9 @@
             \   }
             \ }
 
+      let g:mustache_abbreviations = 1
+      "}}}
+
     "}}}
 
 
@@ -494,12 +482,12 @@
   """ Ruby
     "{{{
 
-    " Switch Ruby versions from inside Vim
+    " switch Ruby versions from inside Vim
       NeoBundleLazy 'tpope/vim-rvm', {
             \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
             \ }
 
-    " Lightweight support for Ruby's Bundler'
+    " lightweight support for Ruby's Bundler'
       NeoBundleLazy 'tpope/vim-bundler', {
             \   'autoload': {
             \     'filetypes': [ 'ruby', 'eruby' ],
@@ -531,31 +519,10 @@
       augroup END
       ""}}}
 
-    " Refactoring
+    " refactoring
       NeoBundleLazy 'killphi/vim-ruby-refactoring', {
             \   'autoload': {'filetypes': [ 'ruby', 'eruby' ]}
             \ }
-
-    " Coverage: vim-legend - use with gem 'cadre'  {{{
-      NeoBundleLazy 'killphi/vim-legend', {
-            \   'autoload': {'filetypes': [ 'ruby' ]},
-            \   'augroup': 'Legend'
-            \ }
-
-      let g:legend_active_auto = 0
-
-      let g:legend_hit_sign="✔"
-      let g:legend_miss_sign="✘"
-      let g:legend_ignored_sign="◌"
-
-      " Solarized dark
-      let g:legend_hit_color="ctermfg=2"
-      let g:legend_miss_color="ctermfg=9"
-      let g:legend_ignored_color="ctermfg=7"
-
-      " highlight miss lines
-      let g:legend_miss_line_color="ctermbg=0"
-      "}}}
 
     " Testing
       NeoBundleLazy 'jgdavey/vim-turbux', {
@@ -569,10 +536,10 @@
   """ Markdown
     "{{{
 
-    " Markdown syntax highlighting
+    " syntax highlighting
       NeoBundleLazy 'tpope/vim-markdown', {'autoload': {'filetypes': 'markdown'}}
 
-    " Markdown preview to quickly preview markdown files  {{{
+    " quickly preview markdown files  {{{
       NeoBundleLazy 'maba/vim-markdown-preview', {
             \   'autoload': {'filetypes': 'markdown'}
             \ }
@@ -598,7 +565,7 @@
   """ Elixir
     "{{{
 
-    " VIm support
+    " basic support
       NeoBundleLazy 'elixir-lang/vim-elixir', {
             \   'autoload': {'filetypes': 'elixir'}
             \ }
@@ -611,10 +578,10 @@
     "}}}
 
 
-  """ fish - Friendly Interactive SHell
+  """ FISH - Friendly Interactive SHell
     "{{{
 
-    " fish syntax files
+    " FISH syntax files
       NeoBundle 'dag/vim-fish'
 
     "}}}
@@ -633,7 +600,7 @@
   """ Rust
     "{{{
 
-    " Rust Syntax
+    " basic support
       NeoBundleLazy 'wting/rust.vim', {
             \   'autoload': {'filetypes': 'rust'}
             \ }

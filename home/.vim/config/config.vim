@@ -61,7 +61,7 @@ set foldcolumn=3
 set foldmethod=indent
 
 " helper for width between 80 and 120
-set colorcolumn=80,120,121
+set colorcolumn=80,100,120,121
 
 " set better width and height for viewports
 set winheight=25
