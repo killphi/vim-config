@@ -606,6 +606,16 @@
             \ }
 
     "}}}
+
+  """ TOML
+    "{{{
+
+    " basic support
+      NeoBundleLazy 'cespare/vim-toml', {
+            \   'autoload': {'filetypes': 'toml'}
+            \ }
+
+    "}}}
   "}}}
 
 
