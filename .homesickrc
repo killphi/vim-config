@@ -25,8 +25,8 @@ class Helpers
 
     def link_nvim
       paths = {
-        '~/.vim' => '~/.nvim',
-        '~/.vimrc' => '~/.nvimrc'
+        '~/.vimrc' => '~/.nvimrc',
+        '~/.vim' => '~/.nvim'
       }
 
       paths.each_pair do |src, dest|
@@ -35,6 +35,9 @@ class Helpers
 
         FileUtils.ln_s e_src, e_dest
       end
+    rescue Exception => e
+      # ignore if EEXIST
+      raise e unless e.is_a? Errno::EEXIST
     end
   end
 end
