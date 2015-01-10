@@ -51,7 +51,7 @@ set undofile
 set path+=,,.
 
 " reset mouse
-set mouse=nv
+set mouse=nvi
 
 " remember last position in file
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
