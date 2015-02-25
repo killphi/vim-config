@@ -284,22 +284,20 @@
 
   " lean & mean statusline for vim that's light as air  {{{
     NeoBundle 'bling/vim-airline', {
-          \   'augroup': 'airline'
+          \   'augroup': 'airline',
+          \   'depends': 'bling/vim-bufferline'
           \ }
 
-    let g:airline_theme = 'solarized'
+    " enable powerline font symbols
     let g:airline_powerline_fonts = 1
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_branch_prefix = ' '
-    let g:airline_readonly_symbol = ''
-    let g:airline_linecolumn_prefix = ' '
-    let g:airline_whitespace_symbol = 'Ξ'
-    let g:airline_enable_branch = 1
-    let g:airline_enable_syntastic = 1
-    let g:airline_enable_tagbar = 1
+
+    let g:airline#extensions#bufferline#enabled = 1
+    let g:airline#extensions#syntastic#enabled = 1
+    let g:airline#extensions#branch#enabled = 1
+    let g:airline#extensions#hunks#enabled = 1
+
+    let g:airline#extensions#tagbar#enabled = 1
+    let g:airline#extensions#tagbar#flags = 'f'
     "}}}
 
   " ag aka The Silver Searcher  {{{
