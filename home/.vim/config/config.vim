@@ -1,7 +1,7 @@
 " default color scheme
-set t_Co=256
-set background=dark
+"set t_Co=256
 color solarized
+set background=dark
 
 " don't wrap long lines
 set nowrap
