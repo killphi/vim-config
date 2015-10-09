@@ -62,7 +62,7 @@
     " wisely close statements in supported languages
       NeoBundle 'tpope/vim-endwise'
 
-    " keymaps for quicky manipulating lines and files  {{{
+    " keymaps for quicky manipulating lines and files
       NeoBundle 'tpope/vim-unimpaired'
 
     " quoting/parenthesizing made simple  {{{
@@ -234,7 +234,7 @@
     let g:numbertoggle_start_in_relative_mode = 0
     "}}}
 
-  " collaborative eDiting for Vim  {{{
+  " collaborative editing for Vim  {{{
     NeoBundle 'FredKSchott/CoVim', {
           \   'build': {
           \     'unix': 'pip install twisted argparse --exists-action i --user'
