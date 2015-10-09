@@ -388,6 +388,9 @@
             \   'depends': 'tpope/vim-fugitive'
             \ }
 
+    " multiple selection editing
+      NeoBundle 'terryma/vim-multiple-cursors'
+
   "}}}
 
 
