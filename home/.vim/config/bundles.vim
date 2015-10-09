@@ -232,6 +232,7 @@
           \ }
 
     let g:numbertoggle_start_in_relative_mode = 0
+    let g:NumberToggleTrigger = "<F2>"
     "}}}
 
   " collaborative editing for Vim  {{{
