@@ -72,6 +72,12 @@ set winwidth=80
 " know .bash_aliases and .bash_functions
 autocmd BufRead,BufNewFile .bash_{aliases,functions} set filetype=sh
 
+" know Guardfile, Gemfile
+autocmd BufRead,BufNewFile G{uard,em}file set filetype=ruby
+
+" know Julia
+autocmd BufRead,BufNewFile *.jl set filetype=julia
+
 " set foldmethod to syntax, if available
 autocmd FileType * if strlen(&syntax) | set foldmethod=syntax | endif
 

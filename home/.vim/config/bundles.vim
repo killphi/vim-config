@@ -101,6 +101,7 @@
 
     " coverage: vim-legend - use with gem 'cadre'  {{{
       NeoBundleLazy 'killphi/vim-legend', {
+            \   'rev': 'basic_refactorings',
             \   'autoload': {'filetypes': [ 'ruby', 'rust' ]},
             \   'augroup': 'Legend'
             \ }
@@ -459,8 +460,6 @@
             \ }
 
       let g:mustache_abbreviations = 1
-      "}}}
-
     "}}}
 
 
@@ -588,6 +587,7 @@
 
     "}}}
 
+
   """ XML / XSLT
     "{{{
 
@@ -599,15 +599,17 @@
 
     "}}}
 
+
   """ Rust
     "{{{
 
     " basic support
-      NeoBundleLazy 'wting/rust.vim', {
+      NeoBundleLazy 'rust-lang/rust.vim', {
             \   'autoload': {'filetypes': 'rust'}
             \ }
 
     "}}}
+
 
   """ TOML
     "{{{
@@ -618,8 +620,21 @@
             \ }
 
     "}}}
-  "}}}
 
+
+  " """ Julia
+    "{{{
+
+    " basic support  {{{
+      NeoBundleLazy 'killphi/julia-vim', {
+            \   'autoload': {'filetypes': 'julia'},
+            \   'rev': 'l2u_only_on_julia'
+            \ }
+      "}}}
+
+    "}}}
+
+  "}}}
 
 
 " " plugin name + desc
