@@ -608,6 +608,18 @@
             \   'autoload': {'filetypes': 'rust'}
             \ }
 
+    " Racer autocompletion  {{{
+      NeoBundleLazy 'racer-rust/vim-racer', {
+            \   'build': {
+            \     'mac': 'cargo build --release',
+            \     'unix': 'cargo build --release'
+            \   },
+            \   'autoload': {'filetypes': 'rust'}
+            \ }
+
+      let g:racer_cmd = "~/Versioning/Rust/racer/target/release/racer"
+      "}}}
+
     "}}}
 
 
