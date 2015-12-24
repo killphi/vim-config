@@ -41,7 +41,9 @@ set directory=~/.vim/vimswap,/tmp
 set viminfo+=r/media
 set viminfo+=r/mnt
 set viminfo+=r/tmp
-set viminfo+=n~/.vim/viminfo
+if !has('nvim')
+  set viminfo+=n~/.vim/viminfo
+endif
 
 " set undo file
 set undodir=~/.vim/vimundo

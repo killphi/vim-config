@@ -401,13 +401,6 @@
   """ HTML
     "{{{
 
-    " HTML 5 syntax & omnicomplete
-      NeoBundleLazy 'othree/html5.vim', {
-            \   'autoload': {
-            \     'filetypes': [ 'html', 'html.mustache', 'html.handlebars' ]
-            \   }
-            \ }
-
     " fix HTML <a> underlines of leading/trailing whitespace
       NeoBundleLazy 'html_annoyance', {
             \   'autoload': {
@@ -608,14 +601,14 @@
             \   'autoload': {'filetypes': 'rust'}
             \ }
 
-    " Racer autocompletion  {{{
-      NeoBundleLazy 'racer-rust/vim-racer', {
-            \   'build': {
-            \     'mac': 'cargo build --release',
-            \     'unix': 'cargo build --release'
-            \   },
-            \   'autoload': {'filetypes': 'rust'}
-            \ }
+    " " Racer autocompletion  {{{
+    "   NeoBundleLazy 'racer-rust/vim-racer', {
+    "         " \   'build': {
+    "         " \     'mac': 'cargo build --release',
+    "         " \     'unix': 'cargo build --release'
+    "         " \   },
+    "         \   'autoload': {'filetypes': 'rust'}
+    "         \ }
 
       let g:racer_cmd = "~/Versioning/Rust/racer/target/release/racer"
       "}}}
