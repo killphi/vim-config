@@ -1,7 +1,7 @@
 # define helpers
 class Helpers
   class << self
-    def message( msg )
+    def message(msg)
       length = 80
       b = "\e[1m"
       t = "\e[0m"
@@ -13,38 +13,19 @@ class Helpers
       puts ''
     end
 
-    def mkdir( dir )
+    def mkdir(dir)
       FileUtils.mkdir_p File.expand_path(dir)
     end
 
-    def touch( file )
+    def touch(file)
       path = File.expand_path(file)
       FileUtils.mkdir_p File.dirname(path)
       FileUtils.touch path
     end
-
-    def link_nvim
-      paths = {
-        '~/.vimrc' => '~/.nvimrc',
-        '~/.vim' => '~/.nvim'
-      }
-
-      paths.each_pair do |src, dest|
-        e_src  = File.expand_path src
-        e_dest = File.expand_path dest
-
-        FileUtils.ln_s e_src, e_dest
-      end
-    rescue Exception => e
-      # ignore if EEXIST
-      raise e unless e.is_a? Errno::EEXIST
-    end
   end
 end
 
-
 # create file structure
-
 Helpers.mkdir '~/.vim/easytags'
 Helpers.mkdir '~/.vim/bundle'
 Helpers.mkdir '~/.vim/vimswap'
@@ -52,11 +33,7 @@ Helpers.mkdir '~/.vim/vimundo'
 
 Helpers.touch '~/.vim/vimtags'
 
-Helpers.link_nvim
-
-
 # install NeoBundle + bundles
-
 bundle_path = File.expand_path('~/.vim/bundle/neobundle.vim')
 if File.directory?(bundle_path)
   Helpers.message('Shougo/neobundle.vim already exists, updating')
