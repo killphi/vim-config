@@ -285,9 +285,9 @@
     "}}}
 
   " lean & mean statusline for vim that's light as air  {{{
-    NeoBundle 'bling/vim-airline', {
+    NeoBundle 'vim-airline/vim-airline', {
           \   'augroup': 'airline',
-          \   'depends': 'bling/vim-bufferline'
+          \   'depends': ['bling/vim-bufferline', 'vim-airline/vim-airline-themes']
           \ }
 
     " enable powerline font symbols
