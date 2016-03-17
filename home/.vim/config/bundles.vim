@@ -609,9 +609,9 @@
     "         " \   },
     "         \   'autoload': {'filetypes': 'rust'}
     "         \ }
-
-      let g:racer_cmd = "~/Versioning/Rust/racer/target/release/racer"
-      "}}}
+    "
+    "   let g:racer_cmd = "~/Versioning/Rust/racer/target/release/racer"
+    "   "}}}
 
     "}}}
 
