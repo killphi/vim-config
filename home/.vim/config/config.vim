@@ -49,6 +49,8 @@ endif
 set undodir=~/.vim/vimundo
 set undofile
 
+" reset tags
+set tags=
 " set path more sensible, duh
 set path+=,,.
 

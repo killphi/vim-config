@@ -139,28 +139,28 @@
       "}}}
 
     " automated tag file generation and syntax highlighting of tags  {{{
-      NeoBundle 'easytags.vim', {
+      NeoBundle 'xolox/vim-easytags', {
             \   'augroup': 'PluginEasyTags',
-            \   'depends': 'vim-misc'
+            \   'depends': 'xolox/vim-misc'
             \ }
 
-      let g:easytags_file = '~/.vim/vimtags'
-      let g:easytags_dynamic_files = 2
-      let g:easytags_by_filetype = '~/.vim/easytags'
+      let g:easytags_async = 1
       let g:easytags_resolvelinks = 1
+      let g:easytags_dynamic_files = 2
       let g:easytags_auto_highlight = 0
-
-      execute "set tags+=" . resolve(expand('~/.vim/vimtags'))
+      let g:easytags_file = '~/.vim/vimtags'
+      let g:easytags_by_filetype = '~/.vim/easytags'
 
       function! s:easytags_fix_buffer_tags()
+        set tags-=./tags;
         if exists('b:git_dir')
-          execute 'setl tags^="' . resolve(expand(b:git_dir).'/../tags') . '"'
+          execute 'setl tags^=' . resolve(expand(b:git_dir).'/../.vimtags')
         endif
       endfunction
 
       augroup BundleVimScriptsEasyTags
         autocmd!
-        autocmd BufEnter * call s:easytags_fix_buffer_tags()
+        autocmd BufWinEnter * call s:easytags_fix_buffer_tags()
       augroup END
       "}}}
 
